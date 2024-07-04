@@ -57,6 +57,6 @@
 </div>
 
 <%@include file="/views/shared/lib-script.jsp" %>
-<%@include file="/views/share/footer.jsp" %>
+<%@include file="/views/shared/footer.jsp" %>
 </body>
 </html>

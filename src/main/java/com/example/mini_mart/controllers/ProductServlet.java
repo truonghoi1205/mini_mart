@@ -17,7 +17,7 @@ import javax.servlet.http.HttpServletResponse;
 import java.io.IOException;
 import java.util.List;
 
-@WebServlet (name = "ProductServlet", urlPatterns = "/home/products/*")
+@WebServlet (name = "ProductServlet", urlPatterns = "/admin/products/*")
 public class ProductServlet extends HttpServlet {
     private static IProductService productService = new ProductService();
     private static ICategoryService categoryService = new CategoryService();

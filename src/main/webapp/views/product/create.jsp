@@ -62,7 +62,7 @@
 
     </form>
 </div>
-<%@include file="/views/share/footer.jsp" %>
+<%@include file="/views/shared/footer.jsp" %>
 <%@include file="/views/shared/lib-script.jsp" %>
 </body>
 </html>

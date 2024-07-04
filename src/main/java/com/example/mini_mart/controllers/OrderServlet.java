@@ -13,7 +13,7 @@ import javax.servlet.http.HttpServletResponse;
 import java.io.IOException;
 import java.util.List;
 
-@WebServlet(name = "OrderServlet", urlPatterns = "/home/orders/*")
+@WebServlet(name = "OrderServlet", urlPatterns = "/admin/orders/*")
 public class OrderServlet extends HttpServlet {
     private static IOrderService orderService = new OrderService();
 

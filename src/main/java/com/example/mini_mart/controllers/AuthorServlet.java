@@ -20,7 +20,7 @@ public class AuthorServlet extends HttpServlet {
 
         HttpSession session = req.getSession();
         if (session.getAttribute("user_id") != null && Objects.equals(url, "/login")) {
-            resp.sendRedirect("/admin/categories/list");
+            resp.sendRedirect("/home/products/list");
             return;
         }
         super.service(req, resp);
@@ -48,7 +48,10 @@ public class AuthorServlet extends HttpServlet {
         }
     }
 
-    private void performLogout(HttpServletRequest req, HttpServletResponse resp) {
+    private void performLogout(HttpServletRequest req, HttpServletResponse resp) throws IOException {
+        HttpSession session = req.getSession();
+        session.removeAttribute("user_id");
+        resp.sendRedirect("/");
     }
 
     private void checkLogin(HttpServletRequest req, HttpServletResponse resp) throws IOException {
