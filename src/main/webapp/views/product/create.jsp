@@ -39,7 +39,7 @@
             <input type="text" class="form-control" id="quantity" name="quantity">
         </div>
         <div class="mb-3">
-            <label for="cost-price" class="form-label">Phân loại</label>
+            <label for="category-id" class="form-label">Phân loại</label>
             <select class="form-select" aria-label="Default select example" name="category-id" id="category-id">
                 <c:forEach var="category" items="${categories}">
                     <option value="${category.id}">${category.name}</option>
@@ -62,6 +62,7 @@
 
     </form>
 </div>
+<%@include file="/views/share/footer.jsp" %>
 <%@include file="/views/shared/lib-script.jsp" %>
 </body>
 </html>

@@ -33,7 +33,7 @@
             <tbody>
             <c:forEach var="product" items="${products}">
                 <tr>
-                    <td>${product.avatar}</td>
+                    <td><img src="${product.avatar}" class="img-fluid" style="width: 40px;"></td>
                     <td>${product.sku}</td>
                     <td>${product.name}</td>
                     <td>${product.costPrice}</td>
@@ -56,7 +56,7 @@
 
 </div>
 
-
 <%@include file="/views/shared/lib-script.jsp" %>
+<%@include file="/views/share/footer.jsp" %>
 </body>
 </html>

@@ -63,7 +63,6 @@ public class ProductServlet extends HttpServlet {
         int quantity = Integer.parseInt(req.getParameter("quantity"));
         int categoryId = Integer.parseInt(req.getParameter("category-id"));
         Product product = new Product(sku, name, price, description, avatar, costPrice, quantity, categoryId);
-
         productService.insert(product);
         req.setAttribute("product", product);
         resp.sendRedirect("/home/products/list");
