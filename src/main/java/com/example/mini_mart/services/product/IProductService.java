@@ -7,4 +7,6 @@ import java.util.List;
 
 public interface IProductService {
     List<ProductDTO> selectAll();
+
+    void insert(Product product);
 }

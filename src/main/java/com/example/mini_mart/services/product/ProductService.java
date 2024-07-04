@@ -13,4 +13,9 @@ public class ProductService implements IProductService {
     public List<ProductDTO> selectAll() {
         return productRepository.selectAll();
     }
+
+    @Override
+    public void insert(Product product) {
+        productRepository.insert(product);
+    }
 }

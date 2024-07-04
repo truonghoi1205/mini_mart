@@ -41,4 +41,24 @@ public class ProductRepository implements IProductRepository {
             throw new RuntimeException(e);
         }
     }
+
+    @Override
+    public void insert(Product product) {
+        Connection connection = new ConnectDB().getConnection();
+        String sql = "insert into products (sku, name, price, description, avatar, cost_price, quantity, category_id) values(?,?,?,?,?,?,?,?)";
+        try {
+            PreparedStatement satement = connection.prepareStatement(sql);
+            satement.setString(1, product.getSku());
+            satement.setString(2, product.getName());
+            satement.setDouble(3, product.getPrice());
+            satement.setString(4, product.getDescription());
+            satement.setString(5, product.getAvatar());
+            satement.setDouble(6, product.getCostPrice());
+            satement.setInt(7, product.getQuantity());
+            satement.setInt(8, product.getCategoryId());
+            satement.executeUpdate();
+        } catch (SQLException e) {
+            throw new RuntimeException(e);
+        }
+    }
 }
