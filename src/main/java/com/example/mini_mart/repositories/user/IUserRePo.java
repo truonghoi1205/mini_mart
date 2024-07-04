@@ -17,4 +17,6 @@ public interface IUserRePo {
     void updateUser(User user) throws SQLException;
 
     List<User> findByName(String name) throws  SQLException;
+
+    User findUserByEmailAndPassword(String email, String password);
 }

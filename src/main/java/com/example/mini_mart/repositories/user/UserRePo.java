@@ -102,4 +102,27 @@ public class UserRePo implements IUserRePo {
         return users;
     }
 
+    @Override
+    public User findUserByEmailAndPassword(String email, String password) {
+        Connection connection = new ConnectDB().getConnection();
+        String sql = "select * from user where email = ? and password = ? limit 1;";
+        try {
+            PreparedStatement ps = connection.prepareStatement(sql);
+            ps.setString(1, email);
+            ps.setString(2, password);
+            ResultSet rs = ps.executeQuery();
+            User user = new User();
+            while (rs.next()) {
+                user.setId(rs.getInt("id"));
+                user.setName(rs.getString("name"));
+                user.setEmail(rs.getString("email"));
+                user.setPassword(rs.getString("password"));
+            }
+            return user;
+
+        } catch (SQLException e) {
+            throw new RuntimeException(e);
+        }
+    }
+
 }

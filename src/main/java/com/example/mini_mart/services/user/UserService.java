@@ -4,6 +4,7 @@ import com.example.mini_mart.models.User;
 import com.example.mini_mart.repositories.user.IUserRePo;
 import com.example.mini_mart.repositories.user.UserRePo;
 
+import java.sql.Connection;
 import java.sql.SQLException;
 import java.util.Collections;
 import java.util.List;
@@ -62,5 +63,9 @@ public class UserService implements IUserService {
         } catch (SQLException e) {
             throw new RuntimeException(e);
         }
+    }
+
+    public User getUserByEmailAndPassword(String email, String password) {
+        return userRePo.findUserByEmailAndPassword(email,password);
     }
 }
