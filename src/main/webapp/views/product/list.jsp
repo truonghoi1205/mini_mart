@@ -14,7 +14,7 @@
 <div class="mb-5">
     <div class="row g-5 m-auto container">
         <div>
-            <a href="/home/products/create" type="button" class="btn btn-sm btn-outline-primary">Thêm mới</a>
+            <a href="/admin/products/create" type="button" class="btn btn-sm btn-outline-primary">Thêm mới</a>
         </div>
         <table class="table table-bordered mt-3">
             <thead>
@@ -42,18 +42,39 @@
                     <td>${product.quantity}</td>
                     <td>${product.categoryName}</td>
                     <td>
-                        <a href="/home/products/update?id=${product.id}" type="button"
+                        <a href="/admin/products/update?id=${product.id}" type="button"
                            class="btn btn-sm btn-outline-warning me-3">Chỉnh sửa</a>
-                        <a href="/home/products/delete?id=${product.id}" type="button"
-                           class="btn btn-sm btn-outline-danger">Xóa</a>
+                        <a href="/admin/products/delete?id=${product.id}" type="button"
+                           class="btn btn-sm btn-outline-danger" data-bs-toggle="modal"
+                           data-bs-target="#modalDelete${product.id}">Xóa</a>
+                        <div class="modal fade" tabindex="-1" id="modalDelete${product.id}">
+                            <div class="modal-dialog">
+                                <div class="modal-content">
+                                    <div class="modal-header">
+                                        <h5 class="modal-title">Xóa Sản Phẩm</h5>
+                                        <button type="button" class="btn-close" data-bs-dismiss="modal"
+                                                aria-label="Close"></button>
+                                    </div>
+                                    <div class="modal-body">
+                                        <p class="my-auto text-center">Bạn có chắc chắn muốn xóa sản phẩm này!!!</p>
+                                    </div>
+                                    <div class="modal-footer">
+                                        <button type="button" class="btn btn-outline-secondary" data-bs-dismiss="modal"
+                                                name="cancel">Hủy
+                                        </button>
+                                        <form action="/admin/products/delete" method="get">
+                                            <button type="submit" class="btn btn-danger">Xác nhận</button>
+                                            <input type="hidden" name="id" value="${product.id}">
+                                        </form>
+                                    </div>
+                                </div>
+                            </div>
                     </td>
                 </tr>
             </c:forEach>
-
             </tbody>
         </table>
     </div>
-
 </div>
 
 <%@include file="/views/shared/lib-script.jsp" %>

@@ -9,4 +9,6 @@ public interface IProductRepository {
     List<ProductDTO> selectAll();
 
     void insert(Product product);
+
+    void deleteById(int id);
 }

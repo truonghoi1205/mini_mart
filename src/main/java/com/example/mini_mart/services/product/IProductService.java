@@ -9,4 +9,6 @@ public interface IProductService {
     List<ProductDTO> selectAll();
 
     void insert(Product product);
+
+    void deleteById(int id);
 }

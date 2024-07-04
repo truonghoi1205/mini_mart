@@ -61,4 +61,18 @@ public class ProductRepository implements IProductRepository {
             throw new RuntimeException(e);
         }
     }
+
+    @Override
+    public void deleteById(int id) {
+        Connection connection = new ConnectDB().getConnection();
+        String sql = "delete from products where id = ?;";
+
+        try {
+            PreparedStatement ps = connection.prepareStatement(sql);
+            ps.setInt(1, id);
+            ps.executeUpdate();
+        } catch (SQLException e) {
+            throw new RuntimeException(e);
+        }
+    }
 }

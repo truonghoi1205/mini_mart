@@ -32,7 +32,7 @@ public class ProductServlet extends HttpServlet {
                 showFormCreateProduct(req, resp);
                 break;
             case "/delete":
-//                deleteProduct(req, resp);
+                deleteProduct(req, resp);
                 break;
             case "/update":
 //                showFormUpdateProduct(req, resp);
@@ -41,6 +41,12 @@ public class ProductServlet extends HttpServlet {
 //                searchProduct(req, resp);
                 break;
         }
+    }
+
+    private void deleteProduct(HttpServletRequest req, HttpServletResponse resp) throws IOException {
+        int id = Integer.parseInt(req.getParameter("id"));
+        productService.deleteById(id);
+        resp.sendRedirect("/admin/products/list");
     }
 
     protected void doPost(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
@@ -65,7 +71,7 @@ public class ProductServlet extends HttpServlet {
         Product product = new Product(sku, name, price, description, avatar, costPrice, quantity, categoryId);
         productService.insert(product);
         req.setAttribute("product", product);
-        resp.sendRedirect("/home/products/list");
+        resp.sendRedirect("/admin/products/list");
     }
 
     private void showFormCreateProduct(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {

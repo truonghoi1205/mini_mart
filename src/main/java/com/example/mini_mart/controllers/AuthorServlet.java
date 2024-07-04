@@ -20,7 +20,7 @@ public class AuthorServlet extends HttpServlet {
 
         HttpSession session = req.getSession();
         if (session.getAttribute("user_id") != null && Objects.equals(url, "/login")) {
-            resp.sendRedirect("/home/products/list");
+            resp.sendRedirect("/admin/products/list");
             return;
         }
         super.service(req, resp);
@@ -62,7 +62,7 @@ public class AuthorServlet extends HttpServlet {
         if (user.getId() != 0) {
             HttpSession session = req.getSession();
             session.setAttribute("user_id", user.getId());
-            resp.sendRedirect("/home/products/list");
+            resp.sendRedirect("/admin/products/list");
         } else {
             System.out.println("khong dung");
         }
