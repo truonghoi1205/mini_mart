@@ -1,8 +1,10 @@
 package com.example.mini_mart.controllers.home;
 
+import com.example.mini_mart.models.Address;
 import com.example.mini_mart.models.Cart;
 import com.example.mini_mart.models.CartItem;
-import com.example.mini_mart.models.Product;
+import com.example.mini_mart.services.order.IOrderService;
+import com.example.mini_mart.services.order.OrderService;
 
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
@@ -14,6 +16,8 @@ import java.io.IOException;
 
 @WebServlet(name = "CartController", urlPatterns = "/home/cart/*")
 public class CartController extends HttpServlet {
+    private static IOrderService orderService = new OrderService();
+
     @Override
     protected void doGet(javax.servlet.http.HttpServletRequest req, javax.servlet.http.HttpServletResponse resp) throws javax.servlet.ServletException, java.io.IOException {
         String url = req.getRequestURI();
@@ -35,16 +39,32 @@ public class CartController extends HttpServlet {
                 addCart(req, resp);
                 break;
             default:
-                System.out.println("a");
-                resp.sendError(404);
+                req.getRequestDispatcher("/views/store/404error.jsp").forward(req,resp);
                 break;
         }
     }
 
     @Override
     protected void doPost(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
-
+        Address address = new Address();
+        address.setName(req.getParameter("name"));
+        address.setAddress(req.getParameter("address"));
+        address.setEmail(req.getParameter("email"));
+        address.setPhoneNumber(req.getParameter("phone"));
+        HttpSession session = req.getSession();
+        Cart cart = (Cart) session.getAttribute("cart");
+        cart.clearErrors();
+        cart.setAddress(address);
+        orderService.insertOrder(cart);
+        if (cart.getErrors().isEmpty()) {
+            session.removeAttribute("cart");
+            resp.sendRedirect("/home/thank-you");
+        } else {
+            req.setAttribute("cart", cart);
+            req.getRequestDispatcher("/views/store/check-out.jsp").forward(req, resp);
+        }
     }
+
     private void showFormCheckout(HttpServletRequest req, HttpServletResponse resp) throws IOException, ServletException {
         HttpSession session = req.getSession();
         Cart cart = (Cart) session.getAttribute("cart");
