@@ -22,6 +22,7 @@ public class ProductServlet extends HttpServlet {
     private static IProductService productService = new ProductService();
     private static ICategoryService categoryService = new CategoryService();
     protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
+        req.setCharacterEncoding("UTF-8");
         String url = req.getPathInfo();
         switch (url) {
             case "/list":
@@ -43,6 +44,7 @@ public class ProductServlet extends HttpServlet {
     }
 
     protected void doPost(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
+        req.setCharacterEncoding("UTF-8");
         String url = req.getPathInfo();
         switch (url) {
             case "/create":

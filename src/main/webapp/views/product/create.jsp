@@ -40,9 +40,9 @@
         </div>
         <div class="mb-3">
             <label for="cost-price" class="form-label">Phân loại</label>
-            <select class="form-select" aria-label="Default select example">
+            <select class="form-select" aria-label="Default select example" name="category-id" id="category-id">
                 <c:forEach var="category" items="${categories}">
-                    <option name="category-id" value="${category.id}">${category.name}</option>
+                    <option value="${category.id}">${category.name}</option>
                 </c:forEach>
             </select>
         </div>
