@@ -14,29 +14,30 @@
 <%--<!-- Spinner End -->--%>
 
 <!-- Navbar start -->
-<div class="container-fluid">
-    <div class="container px-0">
-        <nav class="navbar navbar-light bg-white navbar-expand-xl">
-            <a href="#" class="navbar-brand"><h1 class="text-primary display-6">HnQFruits</h1></a>
-            <button class="navbar-toggler py-2 px-3" type="button" data-bs-toggle="collapse" data-bs-target="#navbarCollapse">
-                <span class="fa fa-bars text-primary"></span>
-            </button>
-            <div class="collapse navbar-collapse bg-white" id="navbarCollapse">
-                <div class="navbar-nav mx-auto">
 
-                    <a href="#" class="nav-item nav-link"><i class="bi bi-bag-check-fill fs-5 me-2"></i>Phân Loại</a>
-                    <a href="#" class="nav-item nav-link"><i class="bi bi-stack fs-5 me-2"></i></i>Sản Phẩm</a>
-                    <a href="#" class="nav-item nav-link"><i class="bi bi-cart-check-fill fs-5 me-2"></i>Đơn Hàng</a>
-                    <a href="#" class="nav-item nav-link"><i class="bi bi-people-fill fs-5 me-2"></i>Nhân Sự</a>
+    <div class="container-fluid px-0 bg-light">
+        <div class="container">
+            <nav class="navbar navbar-light navbar-expand-xl">
+                <a href="#" class="navbar-brand"><h1 class="text-primary display-6">HnQFruits</h1></a>
+                <button class="navbar-toggler py-2 px-3" type="button" data-bs-toggle="collapse" data-bs-target="#navbarCollapse">
+                    <span class="fa fa-bars text-primary"></span>
+                </button>
+                <div class="collapse navbar-collapse" id="navbarCollapse">
+                    <div class="navbar-nav mx-auto">
+
+                        <a href="#" class="nav-item nav-link mx-3"><i class="bi bi-bag-check-fill fs-5 me-2"></i>Phân Loại</a>
+                        <a href="#" class="nav-item nav-link mx-3"><i class="bi bi-stack fs-5 me-2"></i></i>Sản Phẩm</a>
+                        <a href="#" class="nav-item nav-link mx-3"><i class="bi bi-cart-check-fill fs-5 me-2"></i>Đơn Hàng</a>
+                        <a href="#" class="nav-item nav-link mx-3"><i class="bi bi-people-fill fs-5 me-2"></i>Nhân Sự</a>
+                    </div>
+                    <div class="d-flex m-3 me-0">
+                        <a href="#" class="my-auto">
+                            <i class="bi bi-box-arrow-in-right display-6"></i>
+                        </a>
+                    </div>
                 </div>
-                <div class="d-flex m-3 me-0">
-                    <a href="#" class="my-auto">
-                        <i class="bi bi-box-arrow-in-right display-6"></i>
-                    </a>
-                </div>
-            </div>
-        </nav>
+            </nav>
+        </div>
     </div>
-</div>
 <!-- Navbar End -->
 

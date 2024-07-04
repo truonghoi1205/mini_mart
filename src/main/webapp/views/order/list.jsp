@@ -8,10 +8,10 @@
 --%>
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
 <html>
-<head>
-    <title>Title</title>
-</head>
+<%@include file="/giao-dien/cua-hang/shared/head.jsp"%>
 <body>
+<%@include file="/views/shared/menu.jsp"%>
+
 <div class="container mt-5 ">
     <div class="bg-white">
         <div class="d-flex justify-content-between border-bottom px-3 py-2 align-items-center">
@@ -66,5 +66,6 @@
         </div>
     </div>
 </div>
+<%@include file="/views/shared/lib-script.jsp"%>
 </body>
 </html>

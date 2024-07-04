@@ -10,10 +10,10 @@
 <%@include file="/giao-dien/cua-hang/shared/head.jsp"%>
 <body>
 <%@include file="/views/shared/menu.jsp"%>
-<div class="mb-5 bg-menu-style">
+<div class="mb-5">
         <div class="row g-5 m-auto container">
             <div class="">
-                <table class="table table-hover table-bordered mt-3">
+                <table class="table table-bordered mt-3">
                     <thead>
                     <tr>
                         <th>Ảnh</th>
