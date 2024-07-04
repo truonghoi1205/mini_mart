@@ -36,7 +36,7 @@
                 <tr>
                     <th scope="row">
                         <div class="d-flex align-items-center">
-                            <img src="img/vegetable-item-3.png" class="img-fluid me-5 rounded-circle" style="width: 80px; height: 80px;" alt="">
+                            <img src="/img/vegetable-item-3.png" class="img-fluid me-5 rounded-circle" style="width: 80px; height: 80px;" alt="">
                         </div>
                     </th>
                     <td>
@@ -73,7 +73,7 @@
                 <tr>
                     <th scope="row">
                         <div class="d-flex align-items-center">
-                            <img src="img/vegetable-item-5.jpg" class="img-fluid me-5 rounded-circle" style="width: 80px; height: 80px;" alt="" alt="">
+                            <img src="/img/vegetable-item-5.jpg" class="img-fluid me-5 rounded-circle" style="width: 80px; height: 80px;" alt="" alt="">
                         </div>
                     </th>
                     <td>
@@ -109,7 +109,7 @@
                 <tr>
                     <th scope="row">
                         <div class="d-flex align-items-center">
-                            <img src="img/vegetable-item-2.jpg" class="img-fluid me-5 rounded-circle" style="width: 80px; height: 80px;" alt="" alt="">
+                            <img src="/img/vegetable-item-2.jpg" class="img-fluid me-5 rounded-circle" style="width: 80px; height: 80px;" alt="" alt="">
                         </div>
                     </th>
                     <td>

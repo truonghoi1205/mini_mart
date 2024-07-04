@@ -8,7 +8,7 @@ public class ConnectDB {
     private static String dbURL = "jdbc:mysql://localhost:3306/hnq_fruits?useSSL=false";
     private static String dbUser = "root";
 
-    private static String dbPassword = "120599";
+    private static String dbPassword = "848664";
 
 
     public Connection getConnection() {
