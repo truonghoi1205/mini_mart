@@ -12,10 +12,14 @@
 </head>
 <body>
 <div class="container py-4">
+
     <div class="row justify-content-center">
         <div class="col-12 col-lg-6">
             <div class="shadow-sm rounded p-3 bg-white">
                 <h4 class="mb-3">Đăng Nhập</h4>
+                <% if (request.getAttribute("errorMessage") != null) { %>
+                <p style="color: red;"><%= request.getAttribute("errorMessage") %></p>
+                <% } %>
                 <form action="/login" method="post">
                     <div class="mb-3 form-floating">
                         <input type="text" class="form-control" id="email" placeholder="Email" name="email">
