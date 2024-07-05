@@ -50,7 +50,7 @@
                 <div>
                     <div class="input-group mb-3">
                         <label class="input-group-text" for="imageInput">Upload</label>
-                        <input type="file" class="form-control" id="imageInput" value="${product.avatar}" name="avatar">
+                        <input type="file" class="form-control" id="imageInput">
                     </div>
                     <div id="previewContainer">
                         <input type="text" class="form-control d-none" id="avatar" placeholder="Ảnh" name="avatar"
@@ -64,7 +64,8 @@
                 <label for="category-id" class="form-label">Phân loại</label>
                 <select class="form-select" aria-label="Default select example" name="category-id" id="category-id">
                     <c:forEach var="category" items="${categories}">
-                        <option ${product.categoryId == category.id ? "selected" : ""} value="${category.id}">${category.name}</option>
+                        <option ${product.categoryId == category.id ? "selected" : ""}
+                                value="${category.id}">${category.name}</option>
                     </c:forEach>
                 </select>
             </div>
