@@ -7,6 +7,7 @@
   To change this template use File | Settings | File Templates.
 --%>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
+<%@ taglib prefix="fn" uri="http://java.sun.com/jsp/jstl/functions" %>
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
 <html>
 <%@include file="/giao-dien/cua-hang/shared/head.jsp"%>
@@ -164,23 +165,24 @@
                     <div class="row g-4">
                         <div class="col-lg-12">
                             <div class="row g-4">
+                                <c:forEach var="product" items="${products}">
                                 <div class="col-md-6 col-lg-4 col-xl-3">
                                     <div class="rounded position-relative fruite-item">
-                                        <c:forEach var="product" items="${products}">
                                         <div class="fruite-img">
                                             <img src="${product.avatar}" class="img-fluid w-100 rounded-top" alt="">
                                         </div>
                                         <div class="p-4 border border-secondary border-top-0 rounded-bottom">
                                             <h4>${product.name}</h4>
-                                            <p>${product.description}</p>
+                                            <p class="text-start">${fn:substring(product.description, 0, 55)}</p>
                                             <div class="d-flex justify-content-between flex-lg-wrap">
                                                 <p class="text-dark fs-5 fw-bold m-auto">${product.price}đ/kg</p>
-                                                <a href="#" class="btn border border-secondary rounded-pill px-3 text-primary"><i class="fa fa-shopping-bag me-2 text-primary"></i>Mua</a>
+                                                <a href="/home/cart/add?product_id=${product.id}" class="btn border border-secondary rounded-pill px-3 text-primary"><i class="fa fa-shopping-bag me-2 text-primary"></i>Mua</a>
                                             </div>
                                         </div>
-                                        </c:forEach>
+
                                     </div>
                                 </div>
+                                </c:forEach>
                             </div>
                         </div>
                     </div>

@@ -10,6 +10,7 @@ import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Random;
 
 public class ProductRepository implements IProductRepository {
     @Override
@@ -48,7 +49,7 @@ public class ProductRepository implements IProductRepository {
         String sql = "insert into products (sku, name, price, description, avatar, cost_price, quantity, category_id) values(?,?,?,?,?,?,?,?)";
         try {
             PreparedStatement ps = connection.prepareStatement(sql);
-            ps.setString(1, product.getSku());
+            ps.setString(1, randomNumber());
             ps.setString(2, product.getName());
             ps.setDouble(3, product.getPrice());
             ps.setString(4, product.getDescription());
@@ -123,5 +124,10 @@ public class ProductRepository implements IProductRepository {
         } catch (SQLException e) {
             throw new RuntimeException(e);
         }
+    }
+    private String randomNumber() {
+        Random r = new Random(System.currentTimeMillis());
+        int n = 0 + r.nextInt(10000);
+        return "SP-" + n;
     }
 }
