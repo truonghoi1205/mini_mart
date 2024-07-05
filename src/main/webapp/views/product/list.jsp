@@ -27,18 +27,18 @@
             <tbody>
             <c:forEach var="product" items="${products}">
                 <tr>
-                    <td><img src="${product.avatar}" class="img-fluid" style="width: 40px;"></td>
-                    <td>${product.sku}</td>
-                    <td>${product.name}</td>
-                    <td>${product.costPrice}</td>
-                    <td>${product.price}</td>
-                    <td width="30%">${product.description}</td>
-                    <td>${product.quantity}</td>
-                    <td>${product.categoryName}</td>
-                    <td  width="170px">
+                    <td class="align-middle"><img src="${product.avatar}" class="img-fluid" style="width: 50px;"></td>
+                    <td class="align-middle">${product.sku}</td>
+                    <td class="align-middle">${product.name}</td>
+                    <td class="align-middle">${product.costPrice}</td>
+                    <td class="align-middle">${product.price}</td>
+                    <td class="align-middle text-break" width="30%">${product.description}</td>
+                    <td class="align-middle">${product.quantity}</td>
+                    <td class="align-middle">${product.categoryName}</td>
+                    <td class="align-middle"  width="170px">
                         <div>
                             <a href="/admin/products/update?id=${product.id}" type="button"
-                               class="btn btn-sm btn-outline-warning me-3">Chỉnh sửa</a>
+                               class="btn btn-sm btn-outline-warning me-1">Chỉnh sửa</a>
                             <a href="/admin/products/delete?id=${product.id}" type="button"
                                class="btn btn-sm btn-outline-danger" data-bs-toggle="modal"
                                data-bs-target="#modalDelete${product.id}">Xóa</a>
