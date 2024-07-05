@@ -7,6 +7,10 @@
 <body>
 <h1>Phân Loại</h1>
 <a href="/admin/categories/create">Thêm phân loại</a>
+<form action="/admin/categories/search" method="get">
+    <input type="text"  name="name" placeholder="Tìm theo phân loại " value="${name}">
+    <button type="submit" >Tìm Kiếm </button>
+</form>
 <table>
     <tr>
         <th>#</th>

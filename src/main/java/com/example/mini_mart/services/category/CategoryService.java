@@ -7,7 +7,8 @@ import com.example.mini_mart.repositories.category.ICategoryRepo;
 import java.sql.SQLException;
 import java.util.List;
 
-public class CategoryService implements ICategoryService {
+public class
+CategoryService implements ICategoryService {
     private ICategoryRepo categoryRepo = new CategoryRepo();
 
     @Override
@@ -50,6 +51,15 @@ public class CategoryService implements ICategoryService {
     public void updateCategory(Category category) {
         try {
             categoryRepo.updateCategory(category);
+        } catch (SQLException e) {
+            throw new RuntimeException(e);
+        }
+    }
+
+    @Override
+    public List<Category> findByName(String name) {
+        try {
+            return categoryRepo.findByName(name);
         } catch (SQLException e) {
             throw new RuntimeException(e);
         }

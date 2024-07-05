@@ -12,4 +12,6 @@ public interface ICategoryService {
     Category findById(int id);
 
     void updateCategory(Category category);
+
+    List<Category> findByName(String name);
 }

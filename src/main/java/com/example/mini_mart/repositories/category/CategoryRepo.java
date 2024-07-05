@@ -2,12 +2,14 @@ package com.example.mini_mart.repositories.category;
 
 import com.example.mini_mart.database.ConnectDB;
 import com.example.mini_mart.models.Category;
+import com.example.mini_mart.models.User;
 
 import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.util.ArrayList;
+import java.util.Collections;
 import java.util.List;
 
 public class CategoryRepo implements ICategoryRepo {
@@ -83,5 +85,24 @@ public class CategoryRepo implements ICategoryRepo {
         ps.setString(3, category.getDescription());
         ps.setInt(4, category.getId());
         ps.executeUpdate();
+    }
+
+    @Override
+    public List<Category> findByName(String name) throws SQLException {
+        List<Category> categories = new ArrayList<>();
+        Connection connection = new ConnectDB().getConnection();
+        String sql = "select * from categories where name like ? ";
+        PreparedStatement ps = connection.prepareStatement(sql);
+        ps.setString(1,"%" + name + "%");
+        ResultSet rs = ps.executeQuery();
+        while (rs.next()) {
+            Category category = new Category();
+            category.setId(rs.getInt("id"));
+            category.setName(rs.getString("name"));
+            category.setDescription(rs.getString("description"));
+            category.setAvatar(rs.getString("avatar"));
+            categories.add(category);
+        }
+        return categories;
     }
 }

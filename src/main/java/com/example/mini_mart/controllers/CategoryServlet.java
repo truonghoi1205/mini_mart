@@ -1,6 +1,7 @@
 package com.example.mini_mart.controllers;
 
 import com.example.mini_mart.models.Category;
+import com.example.mini_mart.models.User;
 import com.example.mini_mart.services.category.CategoryService;
 import com.example.mini_mart.services.category.ICategoryService;
 
@@ -32,9 +33,19 @@ public class CategoryServlet extends HttpServlet {
                 deleteCategory(req, resp);
                 break;
             case "/update":
-                showFormUpdateCategory(req,resp);
+                showFormUpdateCategory(req, resp);
+                break;
+            case "/search":
+                searchCategory(req,resp);
                 break;
         }
+    }
+
+    private void searchCategory(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
+        String name = req.getParameter("name");
+        List<Category> categories = categoryService.findByName(name);
+        req.setAttribute("categories",categories);
+        req.getRequestDispatcher("/views/category/list.jsp").forward(req,resp);
     }
 
     private void showFormUpdateCategory(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
@@ -72,7 +83,7 @@ public class CategoryServlet extends HttpServlet {
                 createCategory(req, resp);
                 break;
             case "/update":
-                updateCategory(req,resp);
+                updateCategory(req, resp);
                 break;
         }
     }
