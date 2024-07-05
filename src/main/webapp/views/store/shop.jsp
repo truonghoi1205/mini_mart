@@ -1,4 +1,5 @@
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
+<%@ taglib prefix="fn" uri="http://java.sun.com/jsp/jstl/functions" %>
 <%--
   Created by IntelliJ IDEA.
   User: ASUS
@@ -173,7 +174,7 @@
                                         </div>
                                         <div class="p-4 border border-secondary border-top-0 rounded-bottom">
                                             <h4>${product.name}</h4>
-                                            <p>${product.description}</p>
+                                            <p> ${fn:substring(product.description,0, 80)}...  </p>
                                             <div class="d-flex justify-content-between flex-lg-wrap">
                                                 <p class="text-dark fs-5 fw-bold mb-0">${product.price} / kg</p>
                                                 <a href="/home/cart/add?product_id=${product.id}"

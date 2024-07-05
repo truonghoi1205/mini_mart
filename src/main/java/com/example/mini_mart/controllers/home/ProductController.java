@@ -20,9 +20,6 @@ public class ProductController extends HttpServlet {
     protected void doGet(javax.servlet.http.HttpServletRequest req, javax.servlet.http.HttpServletResponse resp) throws javax.servlet.ServletException, java.io.IOException {
         String url = req.getRequestURI();
         switch (url) {
-            case "/home":
-                showProduct(req,resp);
-                break;
             case "/home/shop":
                 showAllProduct(req,resp);
                 break;
@@ -38,12 +35,9 @@ public class ProductController extends HttpServlet {
     }
 
     private void showProduct(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
-//        int id =Integer.parseInt(req.getParameter("id")) ;
-//        Product product = productService.selectProduct(id);
-//        req.setAttribute("product",product);
-//        req.getRequestDispatcher("/views/store/products/show.jsp").forward(req, resp);
-        List<ProductDTO> products = productService.selectAll();
-        req.setAttribute("products",products);
-        req.getRequestDispatcher("/views/store/home.jsp").forward(req,resp);
+        int id =Integer.parseInt(req.getParameter("id")) ;
+        Product product = productService.selectProductById(id);
+        req.setAttribute("product",product);
+        req.getRequestDispatcher("/views/store/show.jsp").forward(req, resp);
     }
 }
