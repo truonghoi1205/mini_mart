@@ -20,20 +20,20 @@ public class ProductRepository implements IProductRepository {
             String sql = "select p.id, p.avatar, p.sku, p.name, p.cost_price, p.price, c.description, p.quantity, c.name as category_name " +
                     "from products p " +
                     "join categories c on p.category_id = c.id";
-            PreparedStatement satement = connection.prepareStatement(sql);
-            ResultSet rs = satement.executeQuery();
+            PreparedStatement statement = connection.prepareStatement(sql);
+            ResultSet rs = statement.executeQuery();
             while (rs.next()) {
-               ProductDTO product = new ProductDTO();
-               product.setId(rs.getInt("id"));
-               product.setAvatar(rs.getString("avatar"));
-               product.setSku(rs.getString("sku"));
-               product.setName(rs.getString("name"));
-               product.setCostPrice(rs.getDouble("cost_price"));
-               product.setPrice(rs.getDouble("price"));
-               product.setDescription(rs.getString("description"));
-               product.setQuantity(rs.getInt("quantity"));
-               product.setCategoryName(rs.getString("category_name"));
-               products.add(product);
+                ProductDTO product = new ProductDTO();
+                product.setId(rs.getInt("id"));
+                product.setAvatar(rs.getString("avatar"));
+                product.setSku(rs.getString("sku"));
+                product.setName(rs.getString("name"));
+                product.setCostPrice(rs.getDouble("cost_price"));
+                product.setPrice(rs.getDouble("price"));
+                product.setDescription(rs.getString("description"));
+                product.setQuantity(rs.getInt("quantity"));
+                product.setCategoryName(rs.getString("category_name"));
+                products.add(product);
             }
             rs.close();
             return products;
@@ -47,16 +47,16 @@ public class ProductRepository implements IProductRepository {
         Connection connection = new ConnectDB().getConnection();
         String sql = "insert into products (sku, name, price, description, avatar, cost_price, quantity, category_id) values(?,?,?,?,?,?,?,?)";
         try {
-            PreparedStatement satement = connection.prepareStatement(sql);
-            satement.setString(1, product.getSku());
-            satement.setString(2, product.getName());
-            satement.setDouble(3, product.getPrice());
-            satement.setString(4, product.getDescription());
-            satement.setString(5, product.getAvatar());
-            satement.setDouble(6, product.getCostPrice());
-            satement.setInt(7, product.getQuantity());
-            satement.setInt(8, product.getCategoryId());
-            satement.executeUpdate();
+            PreparedStatement statement = connection.prepareStatement(sql);
+            statement.setString(1, product.getSku());
+            statement.setString(2, product.getName());
+            statement.setDouble(3, product.getPrice());
+            statement.setString(4, product.getDescription());
+            statement.setString(5, product.getAvatar());
+            statement.setDouble(6, product.getCostPrice());
+            statement.setInt(7, product.getQuantity());
+            statement.setInt(8, product.getCategoryId());
+            statement.executeUpdate();
         } catch (SQLException e) {
             throw new RuntimeException(e);
         }
@@ -71,6 +71,32 @@ public class ProductRepository implements IProductRepository {
             PreparedStatement ps = connection.prepareStatement(sql);
             ps.setInt(1, id);
             ps.executeUpdate();
+        } catch (SQLException e) {
+            throw new RuntimeException(e);
+        }
+    }
+
+    @Override
+    public Product selectById(int id) {
+        Product product = null;
+        Connection connection = new ConnectDB().getConnection();
+        String sql = "select * from products where id = ?";
+        try {
+            PreparedStatement statement = connection.prepareStatement(sql);
+            statement.setInt(1, id);
+            ResultSet rs = statement.executeQuery();
+            while (rs.next()) {
+                String avatar = rs.getString("avatar");
+                String sku = rs.getString("sku");
+                String name = rs.getString("name");
+                double costPrice = rs.getDouble("cost_price");
+                double price = rs.getDouble("price");
+                String description = rs.getString("description");
+                int quantity = rs.getInt("quantity");
+                int categoryId = rs.getInt("category_id");
+                 product = new Product(id, sku, name, price, description, avatar, costPrice, quantity, categoryId);
+            }
+            return product;
         } catch (SQLException e) {
             throw new RuntimeException(e);
         }

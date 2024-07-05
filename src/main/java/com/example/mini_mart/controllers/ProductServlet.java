@@ -43,23 +43,13 @@ public class ProductServlet extends HttpServlet {
         }
     }
 
-    private void showFormUpdateProduct(HttpServletRequest req, HttpServletResponse resp) {
+    private void showFormUpdateProduct(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
+        List<Category> categories = categoryService.selectAll();
         int id = Integer.parseInt(req.getParameter("id"));
-        String name = req.getParameter("name");
-        String sku = req.getParameter("sku");
-        double price = Double.parseDouble(req.getParameter("price"));
-        double costPrice = Double.parseDouble(req.getParameter("costPrice"));
-        int quantity = Integer.parseInt(req.getParameter("quantity"));
-        String description = req.getParameter("description");
-        String avatar = req.getParameter("avatar");
-        req.setAttribute("id", id);
-        req.setAttribute("name", name);
-        req.setAttribute("sku", sku);
-        req.setAttribute("price", price);
-        req.setAttribute("costPrice", costPrice);
-        req.setAttribute("quantity", quantity);
-        req.setAttribute("description", description);
-        req.setAttribute("avatar", avatar);
+        Product product = productService.selectProductById(id);
+        req.setAttribute("product", product);
+        req.setAttribute("categories", categories);
+        req.getRequestDispatcher("/views/product/update.jsp").forward(req, resp);
     }
 
     protected void doPost(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {

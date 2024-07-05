@@ -42,7 +42,7 @@
                     <td>${product.quantity}</td>
                     <td>${product.categoryName}</td>
                     <td>
-                        <a href="/admin/products/update?id=${product.id}&sku=${product.sku}&name=${product.name}&costPrice=${product.costPrice}&price=${product.price}&description=${product.description}&quantity=${product.quantity}&avatar=${product.avatar}" type="button"
+                        <a href="/admin/products/update?id=${product.id}" type="button"
                            class="btn btn-sm btn-outline-warning me-3">Chỉnh sửa</a>
                         <a href="/admin/products/delete?id=${product.id}" type="button"
                            class="btn btn-sm btn-outline-danger" data-bs-toggle="modal"

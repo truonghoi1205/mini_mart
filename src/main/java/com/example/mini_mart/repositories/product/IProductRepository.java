@@ -11,4 +11,6 @@ public interface IProductRepository {
     void insert(Product product);
 
     void deleteById(int id);
+
+    Product selectById(int id);
 }
