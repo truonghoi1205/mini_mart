@@ -8,10 +8,10 @@ import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.util.ArrayList;
-import java.util.Collections;
 import java.util.List;
 
-public class UserRePo implements IUserRePo {
+public class
+UserRePo implements IUserRePo {
     @Override
     public List<User> selectAll() throws SQLException {
         List<User> users = new ArrayList<>();
