@@ -3,8 +3,11 @@ package com.example.mini_mart.controllers.home;
 import com.example.mini_mart.models.Address;
 import com.example.mini_mart.models.Cart;
 import com.example.mini_mart.models.CartItem;
+import com.example.mini_mart.models.Product;
 import com.example.mini_mart.services.order.IOrderService;
 import com.example.mini_mart.services.order.OrderService;
+import com.example.mini_mart.services.product.IProductService;
+import com.example.mini_mart.services.product.ProductService;
 
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
@@ -17,6 +20,7 @@ import java.io.IOException;
 @WebServlet(name = "CartController", urlPatterns = "/home/cart/*")
 public class CartController extends HttpServlet {
     private static IOrderService orderService = new OrderService();
+    private static IProductService productService = new ProductService();
 
     @Override
     protected void doGet(javax.servlet.http.HttpServletRequest req, javax.servlet.http.HttpServletResponse resp) throws javax.servlet.ServletException, java.io.IOException {
@@ -69,10 +73,10 @@ public class CartController extends HttpServlet {
         HttpSession session = req.getSession();
         Cart cart = (Cart) session.getAttribute("cart");
         if (cart == null || cart.getItems().isEmpty()) {
-            resp.sendRedirect("/store/cart/show");
+            resp.sendRedirect("/home/cart/show");
         }
         req.setAttribute("cart", cart);
-        req.getRequestDispatcher("/views/store/checkout.jsp").forward(req, resp);
+        req.getRequestDispatcher("/views/store/check-out.jsp").forward(req, resp);
     }
 
     private void updateCart(HttpServletRequest req, HttpServletResponse resp) throws IOException {
@@ -94,32 +98,30 @@ public class CartController extends HttpServlet {
     }
 
     private void addCart(HttpServletRequest req, HttpServletResponse resp) throws IOException {
-//        HttpSession session = req.getSession();
-//        Cart cart = (Cart) session.getAttribute("cart");
-//
-//        if (cart == null) {
-//            cart = new Cart();
-//            session.setAttribute("cart", cart);
-//        }
-//
-//        int productId = Integer.parseInt(req.getParameter("product_id"));
-//        Product product = new ProductService().selectProduct(productId);
-//        int quantity;
-//        try {
-//            quantity = Integer.parseInt(req.getParameter("quantity"));
-//        } catch (NumberFormatException e) {
-//            quantity = 1;
-//        }
-//        CartItem cartItem = cart.findCartItemByProductId(productId);
-//        if (cartItem == null) {
-//            CartItem newItem = new CartItem(product, quantity);
-//            cart.addItem(newItem);
-//        } else {
-//            cartItem.setQuantity(cartItem.getQuantity() + quantity);
-//        }
-//
-//        cart.getItems().forEach(a -> System.out.println(a.toString()));
-//        resp.sendRedirect("/store/cart/show");
+        HttpSession session = req.getSession();
+        Cart cart = (Cart) session.getAttribute("cart");
+        if (cart == null) {
+            cart = new Cart();
+            session.setAttribute("cart", cart);
+        }
+        int productId = Integer.parseInt(req.getParameter("product_id"));
+        Product product = productService.selectProductById(productId);
+        int quantity;
+        try {
+            quantity = Integer.parseInt(req.getParameter("quantity"));
+        } catch (NumberFormatException e) {
+            quantity = 1;
+        }
+        CartItem cartItem = cart.findCartItemByProductId(productId);
+        if (cartItem == null) {
+            CartItem newItem = new CartItem(product, quantity);
+            cart.addItem(newItem);
+        } else {
+            cartItem.setQuantity(cartItem.getQuantity() + quantity);
+        }
+
+        cart.getItems().forEach(a -> System.out.println(a.toString()));
+        resp.sendRedirect("/home/cart/show");
     }
 
     private void showCart(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {

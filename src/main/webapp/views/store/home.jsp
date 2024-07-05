@@ -129,7 +129,7 @@
         <div class="tab-class text-center">
             <div class="row g-4">
                 <div class="col-lg-4 text-start">
-                    <h1>Sản phẩm hiện tại</h1>
+                    <h1>Sản phẩm nổi bật</h1>
                 </div>
                 <div class="col-lg-8 text-end">
                     <ul class="nav nav-pills d-inline-flex text-center mb-5">
@@ -157,15 +157,15 @@
                 </div>
             </div>
             <div class="tab-content">
-                <c:forEach var="product" items="${products}">
+
                 <div id="tab-1" class="tab-pane fade show p-0 active">
+
                     <div class="row g-4">
                         <div class="col-lg-12">
                             <div class="row g-4">
-
                                 <div class="col-md-6 col-lg-4 col-xl-3">
                                     <div class="rounded position-relative fruite-item">
-
+                                        <c:forEach var="product" items="${products}">
                                         <div class="fruite-img">
                                             <img src="${product.avatar}" class="img-fluid w-100 rounded-top" alt="">
                                         </div>
@@ -177,15 +177,15 @@
                                                 <a href="#" class="btn border border-secondary rounded-pill px-3 text-primary"><i class="fa fa-shopping-bag me-2 text-primary"></i>Mua</a>
                                             </div>
                                         </div>
-
+                                        </c:forEach>
                                     </div>
                                 </div>
-
                             </div>
                         </div>
                     </div>
+
                 </div>
-                </c:forEach>
+
                 <div id="tab-2" class="tab-pane fade show p-0">
                     <div class="row g-4">
                         <div class="col-lg-12">
