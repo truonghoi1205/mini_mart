@@ -17,7 +17,7 @@ public class ProductRepository implements IProductRepository {
         List<ProductDTO> products = new ArrayList<>();
         try {
             Connection connection = new ConnectDB().getConnection();
-            String sql = "select p.id, p.avatar, p.sku, p.name, p.cost_price, p.price, c.description, p.quantity, c.name as category_name " +
+            String sql = "select p.id, p.avatar, p.sku, p.name, p.cost_price, p.price, p.description, p.quantity, c.name as category_name " +
                     "from products p " +
                     "join categories c on p.category_id = c.id";
             PreparedStatement statement = connection.prepareStatement(sql);

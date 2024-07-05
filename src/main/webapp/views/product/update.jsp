@@ -44,7 +44,6 @@
             <label for="description" class="form-label">Mô tả sản phẩm</label>
             <input type="text" class="form-control" id="description" name="description" value="${product.description}">
         </div>
-
         <div class="row">
             <div class="col-9">
                 <label for="description" class="form-label">Hình Ảnh</label>

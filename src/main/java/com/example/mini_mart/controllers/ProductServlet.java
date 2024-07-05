@@ -43,15 +43,6 @@ public class ProductServlet extends HttpServlet {
         }
     }
 
-    private void showFormUpdateProduct(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
-        List<Category> categories = categoryService.selectAll();
-        int id = Integer.parseInt(req.getParameter("id"));
-        Product product = productService.selectProductById(id);
-        req.setAttribute("product", product);
-        req.setAttribute("categories", categories);
-        req.getRequestDispatcher("/views/product/update.jsp").forward(req, resp);
-    }
-
     protected void doPost(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
         req.setCharacterEncoding("UTF-8");
         String url = req.getPathInfo();
@@ -64,6 +55,17 @@ public class ProductServlet extends HttpServlet {
                 break;
         }
     }
+
+    private void showFormUpdateProduct(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
+        List<Category> categories = categoryService.selectAll();
+        int id = Integer.parseInt(req.getParameter("id"));
+        Product product = productService.selectProductById(id);
+        req.setAttribute("product", product);
+        req.setAttribute("categories", categories);
+        req.getRequestDispatcher("/views/product/update.jsp").forward(req, resp);
+    }
+
+
 
     private void updateProduct(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
         int id = Integer.parseInt(req.getParameter("id"));
@@ -115,7 +117,5 @@ public class ProductServlet extends HttpServlet {
         List<ProductDTO> products = productService.selectAll();
         req.setAttribute("products", products);
         req.getRequestDispatcher("/views/product/list.jsp").forward(req, resp);
-        req.getRequestDispatcher("/views/store/shop.jsp").forward(req, resp);
-        req.getRequestDispatcher("/views/store/home.jsp").forward(req, resp);
     }
 }
