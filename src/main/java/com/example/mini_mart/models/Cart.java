@@ -39,7 +39,7 @@ public class Cart {
     }
 
     public CartItem findCartItemByProductId(int productId) {
-        return items.stream().filter(cartItem -> cartItem.getProductId() == productId).findFirst().orElse(null);
+        return items.stream().filter( cartItem -> cartItem.getProductId() == productId ).findFirst().orElse(null);
     }
 
     public void addError(String field, String message) {

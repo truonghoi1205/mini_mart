@@ -33,7 +33,7 @@
             <div class="collapse navbar-collapse bg-white" id="navbarCollapse">
                 <div class="navbar-nav mx-auto">
                     <a href="/home" class="nav-item nav-link active">Trang chủ</a>
-                    <a href="shop.html" class="nav-item nav-link">Cửa hàng</a>
+                    <a href="/home/shop" class="nav-item nav-link">Tất cả sản phẩm</a>
                     <div class="nav-item dropdown">
                         <a href="#" class="nav-link dropdown-toggle" data-bs-toggle="dropdown">Danh mục</a>
                         <div class="dropdown-menu m-0 bg-secondary rounded-0">

@@ -20,7 +20,7 @@
                     <h1 class="display-1">404</h1>
                     <h1 class="mb-4">Không tìm thấy trang</h1>
                     <p class="mb-4">Chúng tôi xin lỗi, trang bạn đang tìm không tồn tại trên website của chúng tôi! <br> Bạn có thể quay về trang chủ hoặc thử sử dụng tính năng tìm kiếm?</p>
-                    <a class="btn border-secondary rounded-pill py-3 px-5" href="index.html">Trở về trang chủ</a>
+                    <a class="btn border-secondary rounded-pill py-3 px-5" href="/home">Trở về trang chủ</a>
                 </div>
             </div>
         </div>

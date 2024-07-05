@@ -97,5 +97,7 @@ public class ProductServlet extends HttpServlet {
         List<ProductDTO> products = productService.selectAll();
         req.setAttribute("products", products);
         req.getRequestDispatcher("/views/product/list.jsp").forward(req, resp);
+        req.getRequestDispatcher("/views/store/shop.jsp").forward(req, resp);
+        req.getRequestDispatcher("/views/store/home.jsp").forward(req, resp);
     }
 }
