@@ -28,7 +28,7 @@
                 <th>Mô Tả</th>
                 <th>Số Lượng</th>
                 <th>Phân Loại</th>
-                <th>Hành động</th>
+                <th width="150px">Hành động</th>
             </tr>
             </thead>
             <tbody>
@@ -39,15 +39,17 @@
                     <td>${product.name}</td>
                     <td>${product.costPrice}</td>
                     <td>${product.price}</td>
-                    <td>${product.description}</td>
+                    <td width="30%">${product.description}</td>
                     <td>${product.quantity}</td>
                     <td>${product.categoryName}</td>
-                    <td>
-                        <a href="/admin/products/update?id=${product.id}" type="button"
-                           class="btn btn-sm btn-outline-warning me-3">Chỉnh sửa</a>
-                        <a href="/admin/products/delete?id=${product.id}" type="button"
-                           class="btn btn-sm btn-outline-danger" data-bs-toggle="modal"
-                           data-bs-target="#modalDelete${product.id}">Xóa</a>
+                    <td  width="170px">
+                        <div>
+                            <a href="/admin/products/update?id=${product.id}" type="button"
+                               class="btn btn-sm btn-outline-warning me-3">Chỉnh sửa</a>
+                            <a href="/admin/products/delete?id=${product.id}" type="button"
+                               class="btn btn-sm btn-outline-danger" data-bs-toggle="modal"
+                               data-bs-target="#modalDelete${product.id}">Xóa</a>
+                        </div>
                         <div class="modal fade" tabindex="-1" id="modalDelete${product.id}">
                             <div class="modal-dialog">
                                 <div class="modal-content">
