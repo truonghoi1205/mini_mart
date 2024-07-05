@@ -12,7 +12,7 @@
 <body>
 <%@include file="/views/shared/menu.jsp" %>
 <div class="container">
-    <form class="w-50 mx-auto mt-4 shadow rounded-3 p-5 " action="/home/products/create" method="post">
+    <form class="w-50 mx-auto mt-4 shadow rounded-3 p-5 " action="/admin/products/create" method="post">
 
         <div class="mb-3">
             <label for="name" class="form-label">Tên sản phẩm</label>
@@ -74,7 +74,7 @@
 
         <div class="mt-4 d-flex justify-content-end">
             <button type="submit" class="btn btn-primary me-2">Thêm sản phẩm</button>
-            <a href="/home/products/list" type="submit" class="btn btn-warning">Hủy</a>
+            <a href="/admin/products/list" type="submit" class="btn btn-warning">Hủy</a>
         </div>
 
     </form>

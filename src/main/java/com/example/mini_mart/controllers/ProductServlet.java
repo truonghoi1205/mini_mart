@@ -35,7 +35,7 @@ public class ProductServlet extends HttpServlet {
                 deleteProduct(req, resp);
                 break;
             case "/update":
-//                showFormUpdateProduct(req, resp);
+                showFormUpdateProduct(req, resp);
                 break;
             case "/search":
 //                searchProduct(req, resp);
@@ -43,10 +43,23 @@ public class ProductServlet extends HttpServlet {
         }
     }
 
-    private void deleteProduct(HttpServletRequest req, HttpServletResponse resp) throws IOException {
+    private void showFormUpdateProduct(HttpServletRequest req, HttpServletResponse resp) {
         int id = Integer.parseInt(req.getParameter("id"));
-        productService.deleteById(id);
-        resp.sendRedirect("/admin/products/list");
+        String name = req.getParameter("name");
+        String sku = req.getParameter("sku");
+        double price = Double.parseDouble(req.getParameter("price"));
+        double costPrice = Double.parseDouble(req.getParameter("costPrice"));
+        int quantity = Integer.parseInt(req.getParameter("quantity"));
+        String description = req.getParameter("description");
+        String avatar = req.getParameter("avatar");
+        req.setAttribute("id", id);
+        req.setAttribute("name", name);
+        req.setAttribute("sku", sku);
+        req.setAttribute("price", price);
+        req.setAttribute("costPrice", costPrice);
+        req.setAttribute("quantity", quantity);
+        req.setAttribute("description", description);
+        req.setAttribute("avatar", avatar);
     }
 
     protected void doPost(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
@@ -58,6 +71,14 @@ public class ProductServlet extends HttpServlet {
                 break;
         }
     }
+
+    private void deleteProduct(HttpServletRequest req, HttpServletResponse resp) throws IOException {
+        int id = Integer.parseInt(req.getParameter("id"));
+        productService.deleteById(id);
+        resp.sendRedirect("/admin/products/list");
+    }
+
+
 
     private void insertProduct(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
        String sku = req.getParameter("sku");
