@@ -31,23 +31,23 @@
             </tr>
             </thead>
             <tbody>
-            <c:forEach var="product" items="${products}">
+            <c:forEach var="productDTO" items="${products}">
                 <tr>
                     <td><img src="${product.avatar}" class="img-fluid" style="width: 40px;"></td>
-                    <td>${product.sku}</td>
-                    <td>${product.name}</td>
-                    <td>${product.costPrice}</td>
-                    <td>${product.price}</td>
-                    <td>${product.description}</td>
-                    <td>${product.quantity}</td>
-                    <td>${product.categoryName}</td>
+                    <td>${productDTO.sku}</td>
+                    <td>${productDTO.name}</td>
+                    <td>${productDTO.costPrice}</td>
+                    <td>${productDTO.price}</td>
+                    <td>${productDTO.description}</td>
+                    <td>${productDTO.quantity}</td>
+                    <td>${productDTO.categoryName}</td>
                     <td>
-                        <a href="/admin/products/update?id=${product.id}" type="button"
+                        <a href="/admin/products/update?id=${productDTO.id}" type="button"
                            class="btn btn-sm btn-outline-warning me-3">Chỉnh sửa</a>
-                        <a href="/admin/products/delete?id=${product.id}" type="button"
+                        <a href="/admin/products/delete?id=${productDTO.id}" type="button"
                            class="btn btn-sm btn-outline-danger" data-bs-toggle="modal"
-                           data-bs-target="#modalDelete${product.id}">Xóa</a>
-                        <div class="modal fade" tabindex="-1" id="modalDelete${product.id}">
+                           data-bs-target="#modalDelete${productDTO.id}">Xóa</a>
+                        <div class="modal fade" tabindex="-1" id="modalDelete${productDTO.id}">
                             <div class="modal-dialog">
                                 <div class="modal-content">
                                     <div class="modal-header">
@@ -64,7 +64,7 @@
                                         </button>
                                         <form action="/admin/products/delete" method="get">
                                             <button type="submit" class="btn btn-danger">Xác nhận</button>
-                                            <input type="hidden" name="id" value="${product.id}">
+                                            <input type="hidden" name="id" value="${productDTO.id}">
                                         </form>
                                     </div>
                                 </div>

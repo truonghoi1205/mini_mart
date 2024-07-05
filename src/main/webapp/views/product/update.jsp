@@ -13,7 +13,7 @@
 <%@include file="/views/shared/menu.jsp" %>
 <div class="container">
     <form class="w-50 mx-auto mt-4 shadow rounded-3 p-5 " action="/admin/products/update" method="post">
-
+        <input type="hidden" value="${product.id}" name="id">
         <div class="mb-3">
             <label for="name" class="form-label">Tên sản phẩm</label>
             <input type="text" class="form-control" id="name" name="name" value="${product.name}">
@@ -51,7 +51,7 @@
                 <div>
                     <div class="input-group mb-3">
                         <label class="input-group-text" for="imageInput">Upload</label>
-                        <input type="file" class="form-control" id="imageInput" value="${product.avatar}">
+                        <input type="file" class="form-control" id="imageInput" value="${product.avatar}" name="avatar">
                     </div>
                     <div id="previewContainer">
                         <input type="text" class="form-control d-none" id="avatar" placeholder="Ảnh" name="avatar"

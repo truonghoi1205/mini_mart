@@ -47,20 +47,22 @@ public class ProductRepository implements IProductRepository {
         Connection connection = new ConnectDB().getConnection();
         String sql = "insert into products (sku, name, price, description, avatar, cost_price, quantity, category_id) values(?,?,?,?,?,?,?,?)";
         try {
-            PreparedStatement statement = connection.prepareStatement(sql);
-            statement.setString(1, product.getSku());
-            statement.setString(2, product.getName());
-            statement.setDouble(3, product.getPrice());
-            statement.setString(4, product.getDescription());
-            statement.setString(5, product.getAvatar());
-            statement.setDouble(6, product.getCostPrice());
-            statement.setInt(7, product.getQuantity());
-            statement.setInt(8, product.getCategoryId());
-            statement.executeUpdate();
+            PreparedStatement ps = connection.prepareStatement(sql);
+            ps.setString(1, product.getSku());
+            ps.setString(2, product.getName());
+            ps.setDouble(3, product.getPrice());
+            ps.setString(4, product.getDescription());
+            ps.setString(5, product.getAvatar());
+            ps.setDouble(6, product.getCostPrice());
+            ps.setInt(7, product.getQuantity());
+            ps.setInt(8, product.getCategoryId());;
+            ps.executeUpdate();
         } catch (SQLException e) {
             throw new RuntimeException(e);
         }
     }
+
+
 
     @Override
     public void deleteById(int id) {
@@ -97,6 +99,27 @@ public class ProductRepository implements IProductRepository {
                  product = new Product(id, sku, name, price, description, avatar, costPrice, quantity, categoryId);
             }
             return product;
+        } catch (SQLException e) {
+            throw new RuntimeException(e);
+        }
+    }
+
+    @Override
+    public void updateProduct(Product product) {
+        Connection connection = new ConnectDB().getConnection();
+        String sql = "update products set sku = ?, name = ?, price = ?, description = ?, avatar = ?, cost_price = ?, quantity = ?, category_id = ? where id = ?";
+        try {
+            PreparedStatement ps = connection.prepareStatement(sql);
+            ps.setString(1, product.getSku());
+            ps.setString(2, product.getName());
+            ps.setDouble(3, product.getPrice());
+            ps.setString(4, product.getDescription());
+            ps.setString(5, product.getAvatar());
+            ps.setDouble(6, product.getCostPrice());
+            ps.setInt(7, product.getQuantity());
+            ps.setInt(8, product.getCategoryId());
+            ps.setInt(9, product.getId());
+            ps.executeUpdate();
         } catch (SQLException e) {
             throw new RuntimeException(e);
         }

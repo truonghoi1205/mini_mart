@@ -59,7 +59,25 @@ public class ProductServlet extends HttpServlet {
             case "/create":
                 insertProduct(req, resp);
                 break;
+            case "/update":
+                updateProduct(req, resp);
+                break;
         }
+    }
+
+    private void updateProduct(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
+        int id = Integer.parseInt(req.getParameter("id"));
+        String sku = req.getParameter("sku");
+        String name = req.getParameter("name");
+        double price = Double.parseDouble(req.getParameter("price"));
+        String description = req.getParameter("description");
+        String avatar = req.getParameter("avatar");
+        double costPrice = Double.parseDouble(req.getParameter("cost-price"));
+        int quantity = Integer.parseInt(req.getParameter("quantity"));
+        int categoryId = Integer.parseInt(req.getParameter("category-id"));
+        Product product = new Product(id, sku, name, price, description, avatar, costPrice, quantity, categoryId);
+        productService.updateProduct(product);
+        resp.sendRedirect("/admin/products/list");
     }
 
     private void deleteProduct(HttpServletRequest req, HttpServletResponse resp) throws IOException {

@@ -13,4 +13,6 @@ public interface IProductRepository {
     void deleteById(int id);
 
     Product selectById(int id);
+
+    void updateProduct(Product product);
 }
