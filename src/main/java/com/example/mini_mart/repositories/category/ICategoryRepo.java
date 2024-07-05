@@ -15,4 +15,6 @@ public interface ICategoryRepo {
     Category findById(int id) throws SQLException;
 
     void updateCategory(Category category) throws SQLException;
+
+    List<Category> findByName(String name) throws SQLException;
 }
