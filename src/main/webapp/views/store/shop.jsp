@@ -172,14 +172,13 @@
                                             <img src="${product.avatar}" class="img-fluid w-100 rounded-top" alt="">
                                         </div>
                                         <div class="p-4 border border-secondary border-top-0 rounded-bottom">
-                                            <h4>Grapes</h4>
+                                            <h4>${product.name}</h4>
                                             <p>${product.description}</p>
                                             <div class="d-flex justify-content-between flex-lg-wrap">
                                                 <p class="text-dark fs-5 fw-bold mb-0">${product.price} / kg</p>
-                                                <a href="#"
+                                                <a href="/home/cart/add?product_id=${product.id}"
                                                    class="btn border border-secondary rounded-pill px-3 text-primary"><i
-                                                        class="fa fa-shopping-bag me-2 text-primary"></i> Add to
-                                                    cart</a>
+                                                        class="fa fa-shopping-bag me-2 text-primary"></i>Mua</a>
                                             </div>
                                         </div>
                                     </div>
