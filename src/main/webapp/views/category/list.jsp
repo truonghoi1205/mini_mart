@@ -21,7 +21,7 @@
                     <div class="col-3">
                         <form action="/admin/categories/search" class="d-flex">
                             <input class="form-control form-control-sm" type="text" name="keyword"
-                                   placeholder="Tìm kiếm theo phân loại"
+                                   placeholder="Tìm kiếm theo tên"
                                    aria-label=".form-control-sm example">
                             <button class="btn btn-outline-primary ms-3">Tìm</button>
                         </form>
