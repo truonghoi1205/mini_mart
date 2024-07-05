@@ -64,7 +64,7 @@
                 session.setAttribute("user_id", user.getId());
                 resp.sendRedirect("/admin/products/list");
             } else {
-                req.setAttribute("errorMessage", "Email hoặc password không đúng. Vui lòng thử lại.");
+                req.setAttribute("errorMessage", "Email hoặc mật khẩu không chính xác. Vui lòng thử lại!!!");
                 showFormLogin(req, resp);
             }
         }
