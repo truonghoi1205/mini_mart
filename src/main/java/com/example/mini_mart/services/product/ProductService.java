@@ -44,4 +44,9 @@ public class ProductService implements IProductService {
     public List<Product> searchProductsByApproximatePrice(int price) {
         return productRepository.searchProductsByApproximatePrice(price);
     }
+
+    @Override
+    public List<Product> selectProductByCategoryId(int category_id) {
+        return productRepository.selectProductByCategoryId(category_id);
+    }
 }

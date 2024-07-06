@@ -30,6 +30,9 @@ public class ProductController extends HttpServlet {
             case "/home/shop/search":
                 searchProductsByApproximatePrice(req,resp);
                 break;
+            case "/home/shop/search-by-category":
+                searchProductByCategory(req,resp);
+                break;
             case "/home/shop/detail-product":
                 showProduct(req,resp);
                 break;
@@ -37,6 +40,13 @@ public class ProductController extends HttpServlet {
                 req.getRequestDispatcher("/views/store/404error.jsp").forward(req,resp);
                 break;
         }
+    }
+
+    private void searchProductByCategory(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
+        int category_id = Integer.parseInt(req.getParameter("category_id"));
+        List<Product> products = productService.selectProductByCategoryId(category_id);
+        req.setAttribute("products",products);
+        req.getRequestDispatcher("/views/store/shop.jsp").forward(req,resp);
     }
 
 

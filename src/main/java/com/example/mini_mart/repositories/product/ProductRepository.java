@@ -162,7 +162,7 @@ public class ProductRepository implements IProductRepository {
     public List<Product> searchProductsByApproximatePrice(double price) {
         List<Product> products = new ArrayList<>();
         Connection connection = new ConnectDB().getConnection();
-        String sql = "select * from products where price <= ?>";
+        String sql = "select * from products where price <= ?";
         try {
             PreparedStatement ps = connection.prepareStatement(sql);
             ps.setDouble(1, price);
@@ -177,6 +177,34 @@ public class ProductRepository implements IProductRepository {
                 product.setAvatar(rs.getString("avatar"));
                 product.setCostPrice(rs.getDouble("cost_price"));
                 product.setQuantity(rs.getInt("quantity"));
+                products.add(product);
+            }
+        } catch (SQLException e) {
+            throw new RuntimeException(e);
+        }
+        return products;
+    }
+
+    @Override
+    public List<Product> selectProductByCategoryId(int categoryId) {
+        List<Product> products = new ArrayList<>();
+        Connection connection = new ConnectDB().getConnection();
+        String sql = "select * from products where category_id = ?";
+        try {
+            PreparedStatement ps = connection.prepareStatement(sql);
+            ps.setDouble(1, categoryId);
+            ResultSet rs = ps.executeQuery();
+            while (rs.next()) {
+                Product product = new Product();
+                product.setId(rs.getInt("id"));
+                product.setSku(rs.getString("sku"));
+                product.setName(rs.getString("name"));
+                product.setPrice(rs.getDouble("price"));
+                product.setDescription(rs.getString("description"));
+                product.setAvatar(rs.getString("avatar"));
+                product.setCostPrice(rs.getDouble("cost_price"));
+                product.setQuantity(rs.getInt("quantity"));
+                product.setCategoryId(rs.getInt("category_id"));
                 products.add(product);
             }
         } catch (SQLException e) {

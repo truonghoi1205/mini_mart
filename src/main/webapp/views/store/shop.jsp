@@ -76,7 +76,7 @@
                                         <c:forEach var="category" items="${categories}">
                                             <li>
                                                 <div class="d-flex justify-content-between fruite-name">
-                                                    <a href="#"><i class="fas fa-apple-alt me-2"></i>${category.name}
+                                                    <a href="/home/shop/search-by-category?category_id=${category.id}"><i class="fas fa-apple-alt me-2"></i>${category.name}
                                                     </a>
                                                     <span>(3)</span>
                                                 </div>
