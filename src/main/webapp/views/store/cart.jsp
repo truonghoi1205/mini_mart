@@ -1,4 +1,5 @@
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
+<%@ taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt" %>
 <%--
   Created by IntelliJ IDEA.
   User: ASUS
@@ -53,7 +54,7 @@
                                 <p class="mb-0 mt-4">${item.product.name}</p>
                             </td>
                             <td>
-                                <p class="mb-0 mt-4"> ${item.product.price}đ</p>
+                                <p class="mb-0 mt-4"><fmt:formatNumber value="${item.product.price}" type="number"/> đ</p>
                             </td>
                             <td>
                                 <form action="/home/cart/update">
@@ -75,7 +76,7 @@
                                 </form>
                             </td>
                             <td>
-                                <p class="mb-0 mt-4">${cart.getTotalPrice()}đ</p>
+                                <p class="mb-0 mt-4"><fmt:formatNumber value="${cart.getTotalPrice()}" type="number"/> đ</p>
                             </td>
                             <td>
                                 <a href="/home/cart/remove?product_id=${item.product.id}"
@@ -95,7 +96,7 @@
                             <h1 class="display-6 mb-4">Hóa đơn</h1>
                             <div class="d-flex justify-content-between mb-4">
                                 <h5 class="mb-0 me-4">Tạm tính:</h5>
-                                <p class="mb-0">${cart.getTotalPrice()}đ</p>
+                                <p class="mb-0"><fmt:formatNumber value="${cart.getTotalPrice()}" type="number"/> đ</p>
                             </div>
                             <div class="d-flex justify-content-between">
                                 <h5 class="mb-0 me-4">Phí vận chuyển</h5>
@@ -107,7 +108,7 @@
                         </div>
                         <div class="py-4 mb-4 border-top border-bottom d-flex justify-content-between">
                             <h5 class="mb-0 ps-4 me-4">Tổng tiền</h5>
-                            <p class="mb-0 pe-4">${cart.getTotalPrice()+35000}đ</p>
+                            <p class="mb-0 pe-4"><fmt:formatNumber value="${cart.getTotalPrice()+35000}" type="number"/> đ</p>
                         </div>
                         <a href="/home/cart/checkout"
                            class="btn border-secondary rounded-pill px-4 py-3 text-primary mb-4 ms-4"

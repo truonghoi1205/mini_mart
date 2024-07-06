@@ -1,5 +1,6 @@
 
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
+<%@ taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt" %>
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
 <html>
 <%@include file="/giao-dien/cua-hang/shared/head.jsp" %>
@@ -34,8 +35,8 @@
                     <td class="align-middle"><img src="${product.avatar}" class="img-fluid" style="width: 50px;"></td>
                     <td class="align-middle">${product.sku}</td>
                     <td class="align-middle">${product.name}</td>
-                    <td class="align-middle">${product.costPrice}</td>
-                    <td class="align-middle">${product.price}</td>
+                    <td class="align-middle"><fmt:formatNumber value="${product.costPrice}" type="number"/></td>
+                    <td class="align-middle"><fmt:formatNumber value="${product.price}" type="number"/></td>
                     <td class="align-middle text-break" width="30%">${product.description}</td>
                     <td class="align-middle">${product.quantity}</td>
                     <td class="align-middle">${product.categoryName}</td>

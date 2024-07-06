@@ -1,4 +1,5 @@
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
+<%@ taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt" %>
 <%--
   Created by IntelliJ IDEA.
   User: ASUS
@@ -55,7 +56,7 @@
                         <td>${order.address}</td>
                         <td>${order.email}</td>
                         <td>${order.phone}</td>
-                        <td>${order.total}</td>
+                        <td><fmt:formatNumber value="${order.total}" type="number"/></td>
                         <td>
                             <a href="#" class="btn btn-sm btn-outline-primary ms-1">Xem</a>
                         </td>

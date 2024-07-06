@@ -1,5 +1,6 @@
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <%@ taglib prefix="fn" uri="http://java.sun.com/jsp/jstl/functions" %>
+<%@ taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt" %>
 <%--
   Created by IntelliJ IDEA.
   User: ASUS
@@ -126,7 +127,7 @@
                                                 <h4>${product.name}</h4>
                                                 <p class="text-dark"> ${fn:substring(product.description,0, 55)}... </p>
                                                 <div class="d-flex justify-content-between flex-lg-wrap">
-                                                    <p class="text-dark fs-5 fw-bold mb-0">${product.price} / kg</p>
+                                                    <p class="text-dark fs-5 fw-bold mb-0"><fmt:formatNumber value="${product.price}" type="number"/>đ / kg</p>
                                                     <a href="/home/cart/add?product_id=${product.id}"
                                                        class="btn border border-secondary rounded-pill px-3 text-primary"><i
                                                             class="fa fa-shopping-bag me-2 text-primary"></i>Mua</a>

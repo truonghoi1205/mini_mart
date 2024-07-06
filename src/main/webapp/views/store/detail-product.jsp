@@ -6,6 +6,7 @@
   To change this template use File | Settings | File Templates.
 --%>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
+<%@ taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt" %>
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
 <html>
 <%@include file="/giao-dien/cua-hang/shared/head.jsp" %>
@@ -34,7 +35,7 @@
                         <input type="hidden" name="product_id" value="${product.id}">
                         <h4 class="fw-bold mb-3">${product.name}</h4>
                         <p class="mb-3">Danh mục: ${product.category.name}</p>
-                        <h5 class="fw-bold mb-3">${product.price}đ</h5>
+                        <h5 class="fw-bold mb-3"><fmt:formatNumber value="${product.price}" type="number"/>đ</h5>
                         <div class="input-group quantity mb-5" style="width: 100px;">
                             <div class="input-group-btn">
                                 <button type="button" class="btn btn-sm btn-minus rounded-circle border">
