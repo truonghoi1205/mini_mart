@@ -178,7 +178,7 @@
                                                 </div>
                                                 <div class="p-4 border border-secondary border-top-0 rounded-bottom">
                                                     <h4>${product.name}</h4>
-                                                    <p class="text-start">${fn:substring(product.description, 0, 55)}</p>
+                                                    <p class="text-start text-dark">${fn:substring(product.description, 0, 55)}</p>
                                                     <div class="d-flex justify-content-between flex-lg-wrap">
                                                         <p class="text-dark fs-5 fw-bold m-auto">${product.price}đ/kg</p>
                                                         <a href="/home/cart/add?product_id=${product.id}"
