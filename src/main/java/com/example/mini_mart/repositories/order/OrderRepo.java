@@ -16,7 +16,7 @@ public class OrderRepo implements IOrderRepo {
     public List<OrderDTO> selectAll() throws SQLException {
         List<OrderDTO> orders = new ArrayList<>();
         Connection connection = new ConnectDB().getConnection();
-        String sql = "select a.id as addressId, concat(last_name,' ',fisrt_name) as nameAddress, a.address,a.email,a.phone as phoneNumber,o.id,o.number,o.total \n" +
+        String sql = "select a.id as addressId, a.name as nameAddress, a.address,a.email,a.phone as phoneNumber,o.id,o.number,o.total \n" +
                 "from orders o \n" +
                 "join addresses a \n" +
                 "on a.order_id = o.id";
@@ -52,7 +52,7 @@ public class OrderRepo implements IOrderRepo {
             orderId = orderGenerateKeys.getInt(1);
         }
 
-        String addressSql = "insert into addresses(name, address, email, phone_number, order_id) value(?,?,?,?,?)";
+        String addressSql = "insert into addresses(name, address, email, phone, order_id) value(?,?,?,?,?)";
         PreparedStatement addressPs = connection.prepareStatement(addressSql);
         addressPs.setString(1, cart.getAddress().getName());
         addressPs.setString(2, cart.getAddress().getAddress());
@@ -61,7 +61,7 @@ public class OrderRepo implements IOrderRepo {
         addressPs.setInt(5, orderId);
         addressPs.executeUpdate();
 
-        String orderItemSql = "insert into order_items(product_id, quaitity, price, order_id) value(?,?,?,?)";
+        String orderItemSql = "insert into order_items(product_id, quantity, price, order_id) value(?,?,?,?)";
         PreparedStatement orderItemPs = connection.prepareStatement(orderItemSql);
         for (CartItem item : cart.getItems()) {
             orderItemPs.setInt(1, item.getProduct().getId());

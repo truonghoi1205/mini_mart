@@ -1,6 +1,7 @@
 package com.example.mini_mart.repositories.product;
 
 import com.example.mini_mart.database.ConnectDB;
+import com.example.mini_mart.models.Category;
 import com.example.mini_mart.models.Product;
 import com.example.mini_mart.models.dto.ProductDTO;
 
@@ -9,6 +10,7 @@ import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.util.ArrayList;
+import java.util.Collections;
 import java.util.List;
 import java.util.Random;
 
@@ -56,13 +58,13 @@ public class ProductRepository implements IProductRepository {
             ps.setString(5, product.getAvatar());
             ps.setDouble(6, product.getCostPrice());
             ps.setInt(7, product.getQuantity());
-            ps.setInt(8, product.getCategoryId());;
+            ps.setInt(8, product.getCategoryId());
+            ;
             ps.executeUpdate();
         } catch (SQLException e) {
             throw new RuntimeException(e);
         }
     }
-
 
 
     @Override
@@ -83,7 +85,7 @@ public class ProductRepository implements IProductRepository {
     public Product selectById(int id) {
         Product product = null;
         Connection connection = new ConnectDB().getConnection();
-        String sql = "select * from products where id = ?";
+        String sql = "select p.*, c.name as categoryName from products p join categories c on p.category_id = c.id where p.id = ?";
         try {
             PreparedStatement statement = connection.prepareStatement(sql);
             statement.setInt(1, id);
@@ -97,7 +99,10 @@ public class ProductRepository implements IProductRepository {
                 String description = rs.getString("description");
                 int quantity = rs.getInt("quantity");
                 int categoryId = rs.getInt("category_id");
-                 product = new Product(id, sku, name, price, description, avatar, costPrice, quantity, categoryId);
+                Category category = new Category();
+                category.setId(categoryId);
+                category.setName(rs.getString("categoryName"));
+                product = new Product(id, sku, name, price, description, avatar, costPrice, quantity, category);
             }
             return product;
         } catch (SQLException e) {
@@ -125,6 +130,34 @@ public class ProductRepository implements IProductRepository {
             throw new RuntimeException(e);
         }
     }
+
+    @Override
+    public List<Product> getProductByCategoryId(int categoryId) {
+        Connection connection = new ConnectDB().getConnection();
+        String sql = "select * from products where category_id = ?";
+        List<Product> products = new ArrayList<>();
+        try {
+            PreparedStatement ps = connection.prepareStatement(sql);
+            ps.setInt(1, categoryId);
+            ResultSet rs = ps.executeQuery();
+            while (rs.next()) {
+                Product product = new Product();
+                product.setId(rs.getInt("id"));
+                product.setSku(rs.getString("sku"));
+                product.setName(rs.getString("name"));
+                product.setPrice(rs.getDouble("price"));
+                product.setDescription(rs.getString("description"));
+                product.setAvatar(rs.getString("avatar"));
+                product.setCostPrice(rs.getDouble("cost_price"));
+                product.setQuantity(rs.getInt("quantity"));
+                products.add(product);
+            }
+        } catch (SQLException e) {
+            throw new RuntimeException(e);
+        }
+        return products;
+    }
+
     private String randomNumber() {
         Random r = new Random(System.currentTimeMillis());
         int n = 0 + r.nextInt(10000);

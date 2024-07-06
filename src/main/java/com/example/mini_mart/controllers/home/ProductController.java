@@ -23,6 +23,9 @@ public class ProductController extends HttpServlet {
             case "/home/shop":
                 showAllProduct(req,resp);
                 break;
+            case "/home/shop/detail-product":
+                showProduct(req,resp);
+                break;
             default:
                 req.getRequestDispatcher("/views/store/404error.jsp").forward(req,resp);
                 break;
@@ -35,9 +38,9 @@ public class ProductController extends HttpServlet {
     }
 
     private void showProduct(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
-        int id =Integer.parseInt(req.getParameter("id")) ;
+        int id =Integer.parseInt(req.getParameter("product_id")) ;
         Product product = productService.selectProductById(id);
         req.setAttribute("product",product);
-        req.getRequestDispatcher("/views/store/show.jsp").forward(req, resp);
+        req.getRequestDispatcher("/views/store/detail-product.jsp").forward(req, resp);
     }
 }

@@ -173,7 +173,7 @@
                                             <img src="${product.avatar}" class="img-fluid w-100 rounded-top" alt="">
                                         </div>
                                         <div class="p-4 border border-secondary border-top-0 rounded-bottom">
-                                            <h4>${product.name}</h4>
+                                            <a href="/home/shop/detail-product?product_id=${product.id}"><h4>${product.name}</h4></a>
                                             <p> ${fn:substring(product.description,0, 80)}...  </p>
                                             <div class="d-flex justify-content-between flex-lg-wrap">
                                                 <p class="text-dark fs-5 fw-bold mb-0">${product.price} / kg</p>

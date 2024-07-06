@@ -56,26 +56,30 @@
                                 <p class="mb-0 mt-4"> ${item.product.price}đ</p>
                             </td>
                             <td>
-                                <div class="input-group quantity mt-4" style="width: 100px;">
-                                    <div class="input-group-btn">
-                                        <button class="btn btn-sm btn-minus rounded-circle bg-light border">
-                                            <i class="fa fa-minus"></i>
-                                        </button>
+                                <form action="/home/cart/update">
+                                    <input type="hidden" name="product_id" value="${item.product.id}">
+                                    <div class="input-group quantity mt-4" style="width: 100px;">
+                                        <div class="input-group-btn">
+                                            <button class="btn btn-sm btn-minus rounded-circle border">
+                                                <i class="fa fa-minus"></i>
+                                            </button>
+                                        </div>
+                                        <input type="text" id="numbers" class="form-control form-control-sm text-center border-0"
+                                               value="${item.quantity}" name="quantity">
+                                        <div class="input-group-btn">
+                                            <button class="btn btn-sm btn-plus rounded-circle border">
+                                                <i class="fa fa-plus"></i>
+                                            </button>
+                                        </div>
                                     </div>
-                                    <input type="text" class="form-control form-control-sm text-center border-0"
-                                           value="1">
-                                    <div class="input-group-btn">
-                                        <button class="btn btn-sm btn-plus rounded-circle bg-light border">
-                                            <i class="fa fa-plus"></i>
-                                        </button>
-                                    </div>
-                                </div>
+                                </form>
                             </td>
                             <td>
                                 <p class="mb-0 mt-4">${cart.getTotalPrice()}đ</p>
                             </td>
                             <td>
-                                <a href="/home/cart/remove?product_id=${item.product.id}" class="btn btn-md rounded-circle bg-light border mt-4">
+                                <a href="/home/cart/remove?product_id=${item.product.id}"
+                                   class="btn btn-md rounded-circle bg-light border mt-4">
                                     <i class="fa fa-times text-danger"></i>
                                 </a>
                             </td>
@@ -91,23 +95,24 @@
                             <h1 class="display-6 mb-4">Hóa đơn</h1>
                             <div class="d-flex justify-content-between mb-4">
                                 <h5 class="mb-0 me-4">Tạm tính:</h5>
-                                <p class="mb-0">327.000đ</p>
+                                <p class="mb-0">${cart.getTotalPrice()}đ</p>
                             </div>
                             <div class="d-flex justify-content-between">
                                 <h5 class="mb-0 me-4">Phí vận chuyển</h5>
                                 <div class="">
-                                    <p class="mb-0">Cố định: 58.000đ</p>
+                                    <p class="mb-0">Cố định: 35.000đ</p>
                                 </div>
                             </div>
                             <p class="mb-0 text-end">Tới: 295 Nguyễn Tất Thành, Đà Nẵng</p>
                         </div>
                         <div class="py-4 mb-4 border-top border-bottom d-flex justify-content-between">
                             <h5 class="mb-0 ps-4 me-4">Tổng tiền</h5>
-                            <p class="mb-0 pe-4">385.000đ</p>
+                            <p class="mb-0 pe-4">${cart.getTotalPrice()+35000}đ</p>
                         </div>
-                        <button class="btn border-secondary rounded-pill px-4 py-3 text-primary mb-4 ms-4"
-                                type="button">THANH TOÁN
-                        </button>
+                        <a href="/home/cart/checkout"
+                           class="btn border-secondary rounded-pill px-4 py-3 text-primary mb-4 ms-4"
+                           type="button">THANH TOÁN
+                        </a>
                     </div>
                 </div>
             </div>

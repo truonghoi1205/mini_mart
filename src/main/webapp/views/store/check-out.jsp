@@ -1,3 +1,4 @@
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <%--
   Created by IntelliJ IDEA.
   User: ASUS
@@ -26,20 +27,35 @@
                 <div class="col-12">
                     <div class="form-item w-100">
                         <label class="form-label my-3">Họ và tên<sup>*</sup></label>
-                        <input type="text" class="form-control" required minlength="3">
+                        <input type="text" class="form-control" name="name"
+                               value="${cart.address.name}">
+                        <c:if test="${!cart.getErrors().isEmpty()}">
+                            <p class="text-danger mt-1"><small>${cart.getErrors().get("address_name")}</small></p>
+                        </c:if>
                     </div>
                     <div class="form-item">
                         <label class="form-label my-3">Địa chỉ <sup>*</sup></label>
-                        <input type="text" class="form-control" required minlength="10">
+                        <input type="text" class="form-control" name="address"
+                        value="${cart.address.address}">
+                        <c:if test="${!cart.getErrors().isEmpty()}">
+                            <p class="text-danger mt-1"><small>${cart.getErrors().get("address_address")}</small></p>
+                        </c:if>
                     </div>
-
                     <div class="form-item">
                         <label class="form-label my-3">Số điện thoại <sup>*</sup></label>
-                        <input type="tel" class="form-control" required pattern="[0-9]{11}">
+                        <input type="tel" class="form-control" name="phone"
+                        value="${cart.address.phone}">
+                        <c:if test="${!cart.getErrors().isEmpty()}">
+                            <p class="text-danger mt-1"><small>${cart.getErrors().get("address_phone")}</small></p>
+                        </c:if>
                     </div>
                     <div class="form-item">
                         <label class="form-label my-3">Địa chỉ email <sup>*</sup></label>
-                        <input type="email" class="form-control" required>
+                        <input type="email" class="form-control" name="email"
+                        value="${cart.address.email}">
+                        <c:if test="${!cart.getErrors().isEmpty()}">
+                            <p class="text-danger mt-1"><small>${cart.getErrors().get("address_email")}</small></p>
+                        </c:if>
                     </div>
                     <hr>
                 </div>

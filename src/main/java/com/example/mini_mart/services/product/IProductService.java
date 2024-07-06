@@ -15,4 +15,6 @@ public interface IProductService {
     Product selectProductById(int id);
 
     void updateProduct(Product product);
+
+    List<Product> getProductByCategoryId(int categoryId);
 }

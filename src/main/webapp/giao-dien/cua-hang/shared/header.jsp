@@ -8,12 +8,6 @@
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
 
 
-<!-- Spinner Start -->
-<div id="spinner" class="show w-100 vh-100 bg-white position-fixed translate-middle top-50 start-50  d-flex align-items-center justify-content-center">
-    <div class="spinner-grow text-primary" role="status"></div>
-</div>
-<!-- Spinner End -->
-
 <!-- Navbar start -->
 <div class="container-fluid fixed-top">
     <div class="container topbar bg-primary d-none d-lg-block">
@@ -38,7 +32,7 @@
                         <a href="#" class="nav-link dropdown-toggle" data-bs-toggle="dropdown">Danh mục</a>
                         <div class="dropdown-menu m-0 bg-secondary rounded-0">
                             <a href="/home/cart/show" class="dropdown-item">Giỏ hàng</a>
-                            <a href="chackout.html" class="dropdown-item">Thanh Toán</a>
+                            <a href="/home/cart/checkout" class="dropdown-item">Thanh Toán</a>
                         </div>
                     </div>
                 </div>

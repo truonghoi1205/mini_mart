@@ -19,8 +19,8 @@
                     <i class="bi bi-check-circle display-1 text-primary"></i>
                     <h1 class="my-4">Đặt hàng thành công</h1>
                     <p class="mb-4">Cảm ơn quý khách đã sử dụng dịch vụ của chúng tôi!</p>
-                    <a class="btn border-secondary rounded-pill py-3 px-5 me-1" href="index.html">Trở về trang chủ</a>
-                    <a class="btn border-secondary rounded-pill py-3 px-5 ms-1" href="index.html">Tiếp tục mua hàng</a>
+                    <a class="btn border-secondary rounded-pill py-3 px-5 me-1" href="/home">Trở về trang chủ</a>
+                    <a class="btn border-secondary rounded-pill py-3 px-5 ms-1" href="/home/shop">Tiếp tục mua hàng</a>
                 </div>
             </div>
         </div>

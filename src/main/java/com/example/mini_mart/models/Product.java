@@ -10,6 +10,11 @@ public class Product {
     private double costPrice;
     private int quantity;
     private int categoryId;
+    private Category category;
+
+
+    public Product() {
+    }
 
     public Product(String sku, String name, double price, String description, String avatar, double costPrice, int quantity, int categoryId) {
         this.sku = sku;
@@ -22,6 +27,18 @@ public class Product {
         this.categoryId = categoryId;
     }
 
+    public Product(int id, String sku, String name, double price, String description, String avatar, double costPrice, int quantity, Category category) {
+        this.id = id;
+        this.sku = sku;
+        this.name = name;
+        this.price = price;
+        this.description = description;
+        this.avatar = avatar;
+        this.costPrice = costPrice;
+        this.quantity = quantity;
+        this.category = category;
+    }
+
     public Product(int id, String sku, String name, double price, String description, String avatar, double costPrice, int quantity, int categoryId) {
         this.id = id;
         this.sku = sku;
@@ -32,6 +49,14 @@ public class Product {
         this.costPrice = costPrice;
         this.quantity = quantity;
         this.categoryId = categoryId;
+    }
+
+    public Category getCategory() {
+        return category;
+    }
+
+    public void setCategory(Category category) {
+        this.category = category;
     }
 
     public int getId() {

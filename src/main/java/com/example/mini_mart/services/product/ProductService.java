@@ -5,6 +5,7 @@ import com.example.mini_mart.models.dto.ProductDTO;
 import com.example.mini_mart.repositories.product.IProductRepository;
 import com.example.mini_mart.repositories.product.ProductRepository;
 
+import java.util.Collections;
 import java.util.List;
 
 public class ProductService implements IProductService {
@@ -32,5 +33,10 @@ public class ProductService implements IProductService {
     @Override
     public void updateProduct(Product product) {
         productRepository.updateProduct(product);
+    }
+
+    @Override
+    public List<Product> getProductByCategoryId(int categoryId) {
+        return productRepository.getProductByCategoryId(categoryId);
     }
 }
