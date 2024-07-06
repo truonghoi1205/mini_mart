@@ -7,16 +7,17 @@
 <div class="container">
     <form class="w-50 mx-auto mt-4 shadow rounded-3 p-5 " action="/admin/categories/update" method="post">
         <input type="hidden" value="${category.id}" name="id">
+        <h2 class="text-center mb-4">Chỉnh sửa phân loại</h2>
         <div class="mb-3">
-            <label for="name" class="form-label">Tên sản phẩm</label>
+            <label for="name" class="form-label">Tên phân loại</label>
             <input type="text" class="form-control" id="name" name="name" value="${category.name}" required>
         </div>
         <div class="mb-3">
-            <label for="description" class="form-label">Mô tả sản phẩm</label>
+            <label for="description" class="form-label">Mô tả phân loại</label>
             <input type="text" class="form-control" id="description" name="description" value="${category.description}" required>
         </div>
         <div class="row">
-            <div class="col-9">
+            <div class="col-12">
                 <label for="description" class="form-label">Hình Ảnh</label>
                 <div>
                     <div class="input-group mb-3">

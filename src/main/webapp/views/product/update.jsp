@@ -4,9 +4,10 @@
 <%@include file="/giao-dien/cua-hang/shared/head.jsp" %>
 <body>
 <%@include file="/views/shared/menu.jsp" %>
-<div class="container">
+
     <form class="w-50 mx-auto mt-4 shadow rounded-3 p-5 " action="/admin/products/update" method="post">
         <input type="hidden" value="${product.id}" name="id">
+        <h2 class="text-center mb-4">Chỉnh sửa sản phẩm</h2>
         <div class="mb-3">
             <label for="name" class="form-label">Tên sản phẩm</label>
             <input type="text" class="form-control" id="name" name="name" value="${product.name}" required>
@@ -63,15 +64,11 @@
                 </select>
             </div>
         </div>
-
-
         <div class="mt-4 d-flex justify-content-end">
             <button type="submit" class="btn btn-primary me-2">Xác nhận</button>
-            <a href="/home/products/list" type="submit" class="btn btn-warning">Hủy</a>
+            <a href="/admin/products/list" type="submit" class="btn btn-warning">Hủy</a>
         </div>
-
     </form>
-</div>
 <%@include file="/views/shared/footer.jsp" %>
 <%@include file="/views/shared/lib-script.jsp" %>
 </body>

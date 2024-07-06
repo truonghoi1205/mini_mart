@@ -107,7 +107,7 @@
                     </div>
                     <div class="featurs-content text-center">
                         <h5>Hoàn trả đơn hàng</h5>
-                        <p class="mb-0">Đảm Bảo Hoàn Tiền Trong 7 Ngày</p>
+                        <p class="mb-0">hoàn tiền trong 7 ngày</p>
                     </div>
                 </div>
             </div>

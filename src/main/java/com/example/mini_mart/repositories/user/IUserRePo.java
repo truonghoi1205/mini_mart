@@ -19,4 +19,6 @@ public interface IUserRePo {
     List<User> findByName(String name) throws  SQLException;
 
     User findUserByEmailAndPassword(String email, String password);
+
+    boolean emailExists(String email);
 }

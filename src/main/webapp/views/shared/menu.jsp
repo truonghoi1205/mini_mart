@@ -14,7 +14,6 @@
 <%--<!-- Spinner End -->--%>
 
 <!-- Navbar start -->
-
     <div class="container-fluid px-0 bg-light">
         <div class="container">
             <nav class="navbar navbar-light navbar-expand-xl">
@@ -24,15 +23,15 @@
                 </button>
                 <div class="collapse navbar-collapse" id="navbarCollapse">
                     <div class="navbar-nav mx-auto">
-
                         <a href="/admin/categories/list" class="nav-item nav-link mx-3"><i class="bi bi-bag-check-fill fs-5 me-2"></i>Phân Loại</a>
                         <a href="/admin/products/list" class="nav-item nav-link mx-3"><i class="bi bi-stack fs-5 me-2"></i></i>Sản Phẩm</a>
                         <a href="/admin/orders/list" class="nav-item nav-link mx-3"><i class="bi bi-cart-check-fill fs-5 me-2"></i>Đơn Hàng</a>
                         <a href="/admin/users/list" class="nav-item nav-link mx-3"><i class="bi bi-people-fill fs-5 me-2"></i>Nhân Sự</a>
                     </div>
                     <div class="d-flex m-3 me-0">
-                        <a href="/logout" class="my-auto">
+                        <a href="/logout" class="my-auto d-flex align-items-end">
                             <i class="bi bi-box-arrow-in-right display-6"></i>
+                            <h5 class="text-primary d-inline-block ms-2">Đăng xuất</h5>
                         </a>
                     </div>
                 </div>

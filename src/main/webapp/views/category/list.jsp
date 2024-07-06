@@ -60,7 +60,7 @@
                                                         aria-label="Close" ></button>
                                             </div>
                                             <div class="modal-body">
-                                                <p class="my-auto text-center">Bạn có chắc chắn muốn xóa sản phẩm này!!!</p>
+                                                <p class="my-auto text-center">Bạn có chắc chắn muốn xóa phân loại này?</p>
                                             </div>
                                             <div class="modal-footer">
                                                 <button type="button" class="btn btn-outline-secondary" data-bs-dismiss="modal"

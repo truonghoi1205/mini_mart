@@ -38,7 +38,7 @@ UserRePo implements IUserRePo {
         preparedStatement.setString(1, user.getName());
         preparedStatement.setString(2, user.getEmail());
         preparedStatement.setString(3, user.getPassword());
-        preparedStatement.execute();
+        preparedStatement.executeUpdate();
     }
 
     @Override
@@ -47,7 +47,7 @@ UserRePo implements IUserRePo {
         String sql = "delete from user where id = ?;";
         PreparedStatement preparedStatement = connection.prepareStatement(sql);
         preparedStatement.setInt(1, id);
-        preparedStatement.execute();
+        preparedStatement.executeUpdate();
     }
 
     @Override
@@ -125,4 +125,15 @@ UserRePo implements IUserRePo {
         }
     }
 
+    public boolean emailExists(String email) {
+        Connection connection = new ConnectDB().getConnection();
+        String sql = "select 1 from user where email = ? limit 1";
+        try (PreparedStatement ps = connection.prepareStatement(sql)) {
+            ps.setString(1, email);
+            ResultSet rs = ps.executeQuery();
+            return rs.next();
+        } catch (SQLException e){
+            throw new RuntimeException(e);
+        }
+    }
 }

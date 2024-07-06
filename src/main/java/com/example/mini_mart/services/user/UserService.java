@@ -11,6 +11,7 @@ import java.util.List;
 
 public class UserService implements IUserService {
     IUserRePo userRePo = new UserRePo();
+
     @Override
     public List<User> selectAll() {
         try {
@@ -66,6 +67,10 @@ public class UserService implements IUserService {
     }
 
     public User getUserByEmailAndPassword(String email, String password) {
-        return userRePo.findUserByEmailAndPassword(email,password);
+        return userRePo.findUserByEmailAndPassword(email, password);
+    }
+
+    public boolean emailExists(String email) {
+        return userRePo.emailExists(email);
     }
 }

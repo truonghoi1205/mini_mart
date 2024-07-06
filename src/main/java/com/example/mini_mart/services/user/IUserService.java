@@ -16,4 +16,6 @@ public interface IUserService {
     void updateUser(User user);
 
     List<User> findByName(String name);
+
+    boolean emailExists(String name);
 }

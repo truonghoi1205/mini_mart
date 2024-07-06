@@ -105,15 +105,27 @@ public class UserServlet extends HttpServlet {
         }
     }
 
-    private void createUser(HttpServletRequest req, HttpServletResponse resp) throws IOException {
+    private void createUser(HttpServletRequest req, HttpServletResponse resp) throws IOException, ServletException {
         String name = req.getParameter("name");
         String email = req.getParameter("email");
         String password = req.getParameter("password");
-        User user = new User();
-        user.setName(name);
-        user.setEmail(email);
-        user.setPassword(password);
-        userService.createUser(user);
-        resp.sendRedirect("/admin/users/list");
+        String rePassword = req.getParameter("rePassword");
+        if (userService.emailExists(email)) {
+            req.setAttribute("existsEmail", "Email đã tồn tại!!!");
+            req.getRequestDispatcher("/views/user/create.jsp").forward(req, resp);
+        } else {
+             if (password.equals(rePassword)){
+                User user = new User();
+                user.setName(name);
+                user.setEmail(email);
+                user.setPassword(password);
+                userService.createUser(user);
+                resp.sendRedirect("/admin/users/list");
+            } else {
+                req.setAttribute("errorPassword", "Mật khẩu không khớp!!!");
+                req.getRequestDispatcher("/views/user/create.jsp").forward(req, resp);
+            }
+        }
+
     }
 }
