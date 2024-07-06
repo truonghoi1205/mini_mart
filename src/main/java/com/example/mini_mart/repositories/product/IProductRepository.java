@@ -17,4 +17,6 @@ public interface IProductRepository {
     void updateProduct(Product product);
 
     List<Product> getProductByCategoryId(int categoryId);
+
+    List<Product> searchProductsByApproximatePrice(double price);
 }

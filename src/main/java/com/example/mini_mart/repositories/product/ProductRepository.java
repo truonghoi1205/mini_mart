@@ -158,6 +158,33 @@ public class ProductRepository implements IProductRepository {
         return products;
     }
 
+    @Override
+    public List<Product> searchProductsByApproximatePrice(double price) {
+        List<Product> products = new ArrayList<>();
+        Connection connection = new ConnectDB().getConnection();
+        String sql = "select * from products where price <= ?>";
+        try {
+            PreparedStatement ps = connection.prepareStatement(sql);
+            ps.setDouble(1, price);
+            ResultSet rs = ps.executeQuery();
+            while (rs.next()) {
+                Product product = new Product();
+                product.setId(rs.getInt("id"));
+                product.setSku(rs.getString("sku"));
+                product.setName(rs.getString("name"));
+                product.setPrice(rs.getDouble("price"));
+                product.setDescription(rs.getString("description"));
+                product.setAvatar(rs.getString("avatar"));
+                product.setCostPrice(rs.getDouble("cost_price"));
+                product.setQuantity(rs.getInt("quantity"));
+                products.add(product);
+            }
+        } catch (SQLException e) {
+            throw new RuntimeException(e);
+        }
+        return products;
+    }
+
     private String randomNumber() {
         Random r = new Random(System.currentTimeMillis());
         int n = 0 + r.nextInt(10000);

@@ -17,4 +17,6 @@ public interface IProductService {
     void updateProduct(Product product);
 
     List<Product> getProductByCategoryId(int categoryId);
+
+    List<Product> searchProductsByApproximatePrice(int price);
 }

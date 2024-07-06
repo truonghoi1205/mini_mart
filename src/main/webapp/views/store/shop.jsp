@@ -73,12 +73,15 @@
                                 <div class="mb-3">
                                     <h4>Phân loại</h4>
                                     <ul class="list-unstyled fruite-categorie">
-                                        <li>
-                                            <div class="d-flex justify-content-between fruite-name">
-                                                <a href="#"><i class="fas fa-apple-alt me-2"></i>Táo</a>
-                                                <span>(3)</span>
-                                            </div>
-                                        </li>
+                                        <c:forEach var="category" items="${categories}">
+                                            <li>
+                                                <div class="d-flex justify-content-between fruite-name">
+                                                    <a href="#"><i class="fas fa-apple-alt me-2"></i>${category.name}
+                                                    </a>
+                                                    <span>(3)</span>
+                                                </div>
+                                            </li>
+                                        </c:forEach>
                                     </ul>
                                 </div>
                             </div>
@@ -87,74 +90,10 @@
                                     <h4 class="mb-2">Giá bán</h4>
                                     <input type="range" class="form-range w-100" id="rangeInput" name="rangeInput"
                                            min="0" max="1500000" value="0" oninput="amount.value=rangeInput.value">
-                                    <output id="amount" name="amount" min-value="0" max-value="500" for="rangeInput">0
+                                    <output id="amount" name="price" min-value="0" max-value="500"
+                                            for="rangeInput">0
                                     </output>
                                     <span>đ</span>
-                                </div>
-                            </div>
-                            <div class="col-lg-12">
-                                <h4 class="mb-3">Sản phẩm nổi bật</h4>
-                                <div class="d-flex align-items-center justify-content-start">
-                                    <div class="rounded me-4" style="width: 100px; height: 100px;">
-                                        <img src="/img/featur-1.jpg" class="img-fluid rounded" alt="">
-                                    </div>
-                                    <div>
-                                        <h6 class="mb-2">Táo Táo Jazz New Zealand</h6>
-                                        <div class="d-flex mb-2">
-                                            <i class="fa fa-star text-secondary"></i>
-                                            <i class="fa fa-star text-secondary"></i>
-                                            <i class="fa fa-star text-secondary"></i>
-                                            <i class="fa fa-star text-secondary"></i>
-                                            <i class="fa fa-star"></i>
-                                        </div>
-                                        <div class="d-flex mb-2">
-                                            <h5 class="fw-bold me-2">109.000đ</h5>
-                                            <h5 class="text-danger text-decoration-line-through">209.000đ</h5>
-                                        </div>
-                                    </div>
-                                </div>
-                                <div class="d-flex align-items-center justify-content-start">
-                                    <div class="rounded me-4" style="width: 100px; height: 100px;">
-                                        <img src="/img/featur-2.jpg" class="img-fluid rounded" alt="">
-                                    </div>
-                                    <div>
-                                        <h6 class="mb-2">Dâu tây Đà Lạt</h6>
-                                        <div class="d-flex mb-2">
-                                            <i class="fa fa-star text-secondary"></i>
-                                            <i class="fa fa-star text-secondary"></i>
-                                            <i class="fa fa-star text-secondary"></i>
-                                            <i class="fa fa-star text-secondary"></i>
-                                            <i class="fa fa-star text-secondary"></i>
-                                        </div>
-                                        <div class="d-flex mb-2">
-                                            <h5 class="fw-bold me-2">390.000đ</h5>
-                                            <h5 class="text-danger text-decoration-line-through">490.000đ</h5>
-                                        </div>
-                                    </div>
-                                </div>
-                                <div class="d-flex align-items-center justify-content-start">
-                                    <div class="rounded me-4" style="width: 100px; height: 100px;">
-                                        <img src="/img/featur-3.jpg" class="img-fluid rounded" alt="">
-                                    </div>
-                                    <div>
-                                        <h6 class="mb-2">Súp lơ xanh</h6>
-                                        <div class="d-flex mb-2">
-                                            <i class="fa fa-star text-secondary"></i>
-                                            <i class="fa fa-star text-secondary"></i>
-                                            <i class="fa fa-star text-secondary"></i>
-                                            <i class="fa fa-star text-secondary"></i>
-                                            <i class="fa fa-star"></i>
-                                        </div>
-                                        <div class="d-flex mb-2">
-                                            <h5 class="fw-bold me-2">89.000đ</h5>
-                                            <h5 class="text-danger text-decoration-line-through">149.000đ</h5>
-                                        </div>
-                                    </div>
-                                </div>
-                                <div class="d-flex justify-content-center my-4">
-                                    <a href="#"
-                                       class="btn border border-secondary px-4 py-3 rounded-pill text-primary w-100">Xem
-                                        Thêm</a>
                                 </div>
                             </div>
                             <div class="col-lg-12">

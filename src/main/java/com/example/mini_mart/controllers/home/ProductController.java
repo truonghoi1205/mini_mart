@@ -1,7 +1,10 @@
 package com.example.mini_mart.controllers.home;
 
+import com.example.mini_mart.models.Category;
 import com.example.mini_mart.models.Product;
 import com.example.mini_mart.models.dto.ProductDTO;
+import com.example.mini_mart.services.category.CategoryService;
+import com.example.mini_mart.services.category.ICategoryService;
 import com.example.mini_mart.services.product.IProductService;
 import com.example.mini_mart.services.product.ProductService;
 
@@ -16,12 +19,16 @@ import java.util.List;
 @WebServlet(name = "ProductController", urlPatterns = "/home/*")
 public class ProductController extends HttpServlet {
     private static IProductService productService = new ProductService();
+    private static ICategoryService categoryService = new CategoryService();
     @Override
     protected void doGet(javax.servlet.http.HttpServletRequest req, javax.servlet.http.HttpServletResponse resp) throws javax.servlet.ServletException, java.io.IOException {
         String url = req.getRequestURI();
         switch (url) {
             case "/home/shop":
                 showAllProduct(req,resp);
+                break;
+            case "/home/shop/search":
+                searchProductsByApproximatePrice(req,resp);
                 break;
             case "/home/shop/detail-product":
                 showProduct(req,resp);
@@ -31,9 +38,20 @@ public class ProductController extends HttpServlet {
                 break;
         }
     }
+
+
+    private void searchProductsByApproximatePrice(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
+        int price = Integer.parseInt(req.getParameter("rangeInput"));
+        List<Product> products = productService.searchProductsByApproximatePrice(price);
+        req.setAttribute("products",products);
+        req.getRequestDispatcher("/views/store/shop.jsp").forward(req,resp);
+    }
+
     private void showAllProduct(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
         List<ProductDTO> products = productService.selectAll();
         req.setAttribute("products",products);
+        List<Category> categories = categoryService.selectAll();
+        req.setAttribute("categories",categories);
         req.getRequestDispatcher("/views/store/shop.jsp").forward(req,resp);
     }
 

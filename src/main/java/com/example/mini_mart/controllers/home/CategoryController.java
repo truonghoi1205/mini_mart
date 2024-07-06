@@ -27,7 +27,7 @@ public class CategoryController extends HttpServlet {
                 showCategory(req, resp);
                 break;
             default:
-                resp.sendError(404);
+                req.getRequestDispatcher("/views/store/404error.jsp").forward(req,resp);
                 break;
         }
     }

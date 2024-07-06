@@ -31,22 +31,21 @@
             <div class="p-3 bg-white shadow-sm">
                 <table class="table table-bordered align-middle">
                     <tr>
-                        <th >#</th>
+                        <th>#</th>
                         <th>Tên</th>
                         <th>Email</th>
-                        <th >Password</th>
+                        <th>Password</th>
                         <th style="width: 300px"></th>
                     </tr>
                     <c:forEach var="user" items="${users}" varStatus="status">
                         <tr>
                             <td>${status.count}</td>
-                            <td>
-                                <img src="${user.name}" class="img-fluid" style="width: 40px;">
-                            </td>
+                            <td>${user.name}</td>
                             <td>${user.email}</td>
                             <td>
                                 <span class="password">●●●●●●●●</span>
-                                <button type="button" class="btn  toggle-password" data-password="${user.password}"><i class="bi bi-eye"></i></button>
+                                <button type="button" class="btn  toggle-password" data-password="${user.password}"><i
+                                        class="bi bi-eye"></i></button>
                             </td>
                             <td>
                                 <a href="/admin/categories/update?id=${user.id}"
@@ -64,7 +63,7 @@
             <script>
                 document.addEventListener('DOMContentLoaded', (event) => {
                     document.querySelectorAll('.toggle-password').forEach(button => {
-                        button.addEventListener('click', function() {
+                        button.addEventListener('click', function () {
                             const passwordSpan = this.previousElementSibling;
                             if (passwordSpan.innerHTML === '●●●●●●●●') {
                                 passwordSpan.innerHTML = this.getAttribute('data-password');

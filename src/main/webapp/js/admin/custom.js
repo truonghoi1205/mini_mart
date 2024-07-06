@@ -18,4 +18,4 @@ if (img !== null) {
             alert("No file selected");
         }
     });
-}
+}ter
