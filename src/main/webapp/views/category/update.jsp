@@ -9,11 +9,11 @@
         <input type="hidden" value="${category.id}" name="id">
         <div class="mb-3">
             <label for="name" class="form-label">Tên sản phẩm</label>
-            <input type="text" class="form-control" id="name" name="name" value="${category.name}">
+            <input type="text" class="form-control" id="name" name="name" value="${category.name}" required>
         </div>
         <div class="mb-3">
             <label for="description" class="form-label">Mô tả sản phẩm</label>
-            <input type="text" class="form-control" id="description" name="description" value="${category.description}">
+            <input type="text" class="form-control" id="description" name="description" value="${category.description}" required>
         </div>
         <div class="row">
             <div class="col-9">
@@ -21,7 +21,7 @@
                 <div>
                     <div class="input-group mb-3">
                         <label class="input-group-text" for="imageInput">Upload</label>
-                        <input type="file" class="form-control" id="imageInput">
+                        <input type="file" class="form-control" id="imageInput" required>
                     </div>
                     <div id="previewContainer">
                         <input type="text" class="form-control d-none" id="avatar" placeholder="Ảnh" name="avatar"

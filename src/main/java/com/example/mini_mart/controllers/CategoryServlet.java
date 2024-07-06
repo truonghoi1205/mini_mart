@@ -56,10 +56,14 @@ public class CategoryServlet extends HttpServlet {
 
     }
 
-    private void deleteCategory(HttpServletRequest req, HttpServletResponse resp) throws IOException {
+    private void deleteCategory(HttpServletRequest req, HttpServletResponse resp) {
         int id = Integer.parseInt(req.getParameter("id"));
-        categoryService.deleteCategory(id);
-        resp.sendRedirect("/admin/categories/list");
+        try {
+            categoryService.deleteCategory(id);
+            resp.sendRedirect("/admin/categories/list");
+        } catch (IOException e) {
+            throw new RuntimeException(e);
+        }
 
     }
 

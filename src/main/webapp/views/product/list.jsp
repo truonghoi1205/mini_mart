@@ -7,9 +7,13 @@
 <%@include file="/views/shared/menu.jsp" %>
 <div class="mb-5">
     <div class="row g-5 m-auto container">
-        <div>
-            <a href="/admin/products/create" type="button" class="btn btn-sm btn-outline-primary">Thêm mới</a>
+        <div class="d-flex justify-content-between p-3 shadow-sm bg-white mb-3 align-items-center">
+            <h6 class="text-decoration-none text-secondary mb-0 ">Tất cả sản phẩm</h6>
+            <div>
+                <a href="/admin/products/create" type="button" class="btn btn-sm btn-outline-primary">Thêm mới</a>
+            </div>
         </div>
+
         <table class="table table-bordered mt-3">
             <thead>
             <tr>

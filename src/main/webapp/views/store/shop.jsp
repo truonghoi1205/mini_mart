@@ -76,7 +76,8 @@
                                         <c:forEach var="category" items="${categories}">
                                             <li>
                                                 <div class="d-flex justify-content-between fruite-name">
-                                                    <a href="/home/shop/search-by-category?category_id=${category.id}"><i class="fas fa-apple-alt me-2"></i>${category.name}
+                                                    <a href="/home/shop/search-by-category?category_id=${category.id}"><i
+                                                            class="fas fa-apple-alt me-2"></i>${category.name}
                                                     </a>
                                                     <span>(3)</span>
                                                 </div>
@@ -104,17 +105,17 @@
                         </div>
                     </div>
                     <div class="col-lg-9">
-                        <div class="row g-4 justify-content-center">
+                        <div class="row g-4">
                             <c:forEach var="product" items="${products}">
-                                <a href="/home/shop/detail-product?product_id=${product.id}">
-                                    <div class="col-md-6 col-lg-6 col-xl-4">
+                                <div class="col-lg-4 col-md-6 col-sm-12">
+                                    <a href="/home/shop/detail-product?product_id=${product.id}">
                                         <div class="rounded position-relative fruite-item">
                                             <div class="fruite-img">
                                                 <img src="${product.avatar}" class="img-fluid w-100 rounded-top" alt="">
                                             </div>
                                             <div class="p-4 border border-secondary border-top-0 rounded-bottom">
                                                 <h4>${product.name}</h4>
-                                                <p class="text-dark"> ${fn:substring(product.description,0, 80)}... </p>
+                                                <p class="text-dark"> ${fn:substring(product.description,0, 55)}... </p>
                                                 <div class="d-flex justify-content-between flex-lg-wrap">
                                                     <p class="text-dark fs-5 fw-bold mb-0">${product.price} / kg</p>
                                                     <a href="/home/cart/add?product_id=${product.id}"
@@ -123,8 +124,9 @@
                                                 </div>
                                             </div>
                                         </div>
-                                    </div>
-                                </a>
+                                    </a>
+                                </div>
+
                             </c:forEach>
                             <div class="col-12">
                                 <div class="pagination d-flex justify-content-center mt-5">

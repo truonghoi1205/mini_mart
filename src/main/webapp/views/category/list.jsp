@@ -10,8 +10,7 @@
         <div class="d-flex justify-content-between p-3 shadow-sm bg-white mb-3 align-items-center">
             <h6 class="text-decoration-none text-secondary mb-0 ">Tất cả phân loại</h6>
             <div>
-                <a class="btn btn-sm btn-primary px-4" type="submit" href="/admin/categories/create">Thêm sản phẩm
-                    mới</a>
+                <a class="btn btn-sm btn-primary px-4 text-light" type="submit" href="/admin/categories/create">Thêm mới</a>
             </div>
         </div>
         <div class="p-3 bg-white mb-2 shadow-sm">
@@ -49,13 +48,35 @@
                             <td>
                                 <a href="/admin/categories/update?id=${category.id}"
                                    class="btn btn-sm btn-outline-warning me-3">Sửa</a>
-                                <a href="/admin/categories/delete?id=${category.id}"
-                                   class="btn btn-sm btn-outline-danger me-3">Xoá</a>
+                                <button
+                                   class="btn btn-sm btn-outline-danger me-3" data-bs-toggle="modal"
+                                   data-bs-target="#modalDelete${category.id}">Xoá</button>
+                                <div class="modal fade" tabindex="-1" id="modalDelete${category.id}">
+                                    <div class="modal-dialog">
+                                        <div class="modal-content">
+                                            <div class="modal-header">
+                                                <h5 class="modal-title">Xóa Sản Phẩm</h5>
+                                                <button type="button" class="btn-close" data-bs-dismiss="modal"
+                                                        aria-label="Close" ></button>
+                                            </div>
+                                            <div class="modal-body">
+                                                <p class="my-auto text-center">Bạn có chắc chắn muốn xóa sản phẩm này!!!</p>
+                                            </div>
+                                            <div class="modal-footer">
+                                                <button type="button" class="btn btn-outline-secondary" data-bs-dismiss="modal"
+                                                        name="cancel">Hủy
+                                                </button>
+                                                <a href="/admin/categories/delete?id=${category.id}" class="btn btn-danger">Xác nhận</a>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
                             </td>
                         </tr>
                     </c:forEach>
                 </table>
             </div>
+
             <%@include file="/views/shared/footer.jsp" %>
             <%@include file="/views/shared/lib-script.jsp" %>
 </body>

@@ -9,33 +9,33 @@
         <input type="hidden" value="${product.id}" name="id">
         <div class="mb-3">
             <label for="name" class="form-label">Tên sản phẩm</label>
-            <input type="text" class="form-control" id="name" name="name" value="${product.name}">
+            <input type="text" class="form-control" id="name" name="name" value="${product.name}" required>
         </div>
         <div class="row">
             <div class="mb-3 col-6">
                 <label for="sku" class="form-label">Mã sản phẩm</label>
-                <input type="text" class="form-control" id="sku" name="sku" value="${product.sku}">
+                <input type="text" class="form-control" id="sku" name="sku" value="${product.sku}" required>
             </div>
             <div class="mb-3 col-6">
                 <label for="price" class="form-label">Giá</label>
-                <input type="text" class="form-control" id="price" name="price" value="${product.price}">
+                <input type="text" class="form-control" id="price" name="price" value="${product.price}" required>
             </div>
         </div>
 
         <div class="row">
             <div class="mb-3 col-6">
                 <label for="cost-price" class="form-label">Giá gốc</label>
-                <input type="text" class="form-control" id="cost-price" name="cost-price" value="${product.costPrice}">
+                <input type="text" class="form-control" id="cost-price" name="cost-price" value="${product.costPrice}" required>
             </div>
             <div class="mb-3 col-6">
                 <label for="quantity" class="form-label">Số lượng</label>
-                <input type="text" class="form-control" id="quantity" name="quantity" value="${product.quantity}">
+                <input type="text" class="form-control" id="quantity" name="quantity" value="${product.quantity}" required>
             </div>
         </div>
 
         <div class="mb-3">
             <label for="description" class="form-label">Mô tả sản phẩm</label>
-            <input type="text" class="form-control" id="description" name="description" value="${product.description}">
+            <input type="text" class="form-control" id="description" name="description" value="${product.description}" required>
         </div>
         <div class="row">
             <div class="col-9">

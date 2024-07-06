@@ -17,26 +17,26 @@
         <h2 class="text-center mb-3">Thêm sản phẩm mới</h2>
         <div class="mb-3">
             <label for="name" class="form-label">Tên sản phẩm</label>
-            <input type="text" class="form-control" id="name" name="name">
+            <input type="text" class="form-control" id="name" name="name" required>
         </div>
         <div class="mb-3">
             <label for="price" class="form-label">Giá</label>
-            <input type="text" class="form-control" id="price" name="price">
+            <input type="text" class="form-control" id="price" name="price" required>
         </div>
         <div class="row">
             <div class="mb-3 col-6">
                 <label for="cost-price" class="form-label">Giá gốc</label>
-                <input type="text" class="form-control" id="cost-price" name="cost-price">
+                <input type="text" class="form-control" id="cost-price" name="cost-price" required>
             </div>
             <div class="mb-3 col-6">
                 <label for="quantity" class="form-label">Số lượng</label>
-                <input type="text" class="form-control" id="quantity" name="quantity">
+                <input type="text" class="form-control" id="quantity" name="quantity" required>
             </div>
         </div>
 
         <div class="mb-3">
             <label for="description" class="form-label">Mô tả sản phẩm</label>
-            <input type="text" class="form-control" id="description" name="description">
+            <input type="text" class="form-control" id="description" name="description" required>
         </div>
 
         <div class="row">
@@ -45,7 +45,7 @@
                 <div>
                     <div class="input-group mb-3">
                         <label class="input-group-text" for="imageInput">Upload</label>
-                        <input type="file" class="form-control" id="imageInput">
+                        <input type="file" class="form-control" id="imageInput" required>
                     </div>
                     <div id="previewContainer">
                         <input type="text" class="form-control d-none" id="avatar" placeholder="Ảnh" name="avatar"
