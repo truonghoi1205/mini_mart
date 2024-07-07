@@ -3,6 +3,7 @@ package com.example.mini_mart.repositories.product;
 import com.example.mini_mart.models.Product;
 import com.example.mini_mart.models.dto.ProductDTO;
 
+import java.sql.SQLException;
 import java.util.List;
 
 public interface IProductRepository {
@@ -21,4 +22,8 @@ public interface IProductRepository {
     List<Product> searchProductsByApproximatePrice(double price);
 
     List<Product> selectProductByCategoryId(int categoryId);
+
+    List<Product> getProducts(int page, int pageSize) throws SQLException;
+
+    int getTotalProducts() throws SQLException;
 }

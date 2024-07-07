@@ -20,4 +20,8 @@ public interface IProductService {
 
     List<Product> searchProductsByApproximatePrice(int price);
     List<Product> selectProductByCategoryId(int category_id);
+
+    List<Product> getProducts(int page, int pageSize);
+
+    int getTotalProducts();
 }

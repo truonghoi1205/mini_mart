@@ -213,6 +213,45 @@ public class ProductRepository implements IProductRepository {
         return products;
     }
 
+    @Override
+    public List<Product> getProducts(int page, int pageSize) throws SQLException {
+        List<Product> products = new ArrayList<>();
+        int offset = (page - 1) * pageSize;
+        Connection connection = new ConnectDB().getConnection();
+        String sql = "select id, sku, name, price, description, avatar, cost_price, category_id from products order by id limit ?, ?";
+        PreparedStatement ps = connection.prepareStatement(sql);
+        ps.setInt(1, offset);
+        ps.setInt(2, pageSize);
+        ResultSet rs = ps.executeQuery();
+        while (rs.next()) {
+            Product product = new Product();
+            product.setId(rs.getInt("id"));
+            product.setSku(rs.getString("sku"));
+            product.setPrice(rs.getDouble("price"));
+            product.setName(rs.getString("name"));
+            product.setDescription(rs.getString("description"));
+            product.setAvatar(rs.getString("avatar"));
+            product.setCostPrice(rs.getDouble("cost_price"));
+            product.setCategoryId(rs.getInt("category_id"));
+            products.add(product);
+        }
+        return products;
+    }
+
+    @Override
+    public int getTotalProducts() throws SQLException {
+        int totalProducts = 0;
+        Connection connection = new ConnectDB().getConnection();
+        String sql = "select count(*) from products";
+        PreparedStatement ps = connection.prepareStatement(sql);
+        ResultSet rs = ps.executeQuery();
+        if (rs.next()) {
+            totalProducts = rs.getInt(1);
+        }
+        return totalProducts;
+
+    }
+
     private String randomNumber() {
         Random r = new Random(System.currentTimeMillis());
         int n = 0 + r.nextInt(10000);

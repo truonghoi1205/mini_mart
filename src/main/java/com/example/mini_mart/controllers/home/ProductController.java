@@ -25,7 +25,7 @@ public class ProductController extends HttpServlet {
         String url = req.getRequestURI();
         switch (url) {
             case "/home/shop":
-                showAllProduct(req,resp);
+                getPageNumber(req,resp);
                 break;
             case "/home/shop/search":
                 searchProductsByApproximatePrice(req,resp);
@@ -60,8 +60,7 @@ public class ProductController extends HttpServlet {
     private void showAllProduct(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
         List<ProductDTO> products = productService.selectAll();
         req.setAttribute("products",products);
-        List<Category> categories = categoryService.selectAll();
-        req.setAttribute("categories",categories);
+
         req.getRequestDispatcher("/views/store/shop.jsp").forward(req,resp);
     }
 
@@ -70,5 +69,22 @@ public class ProductController extends HttpServlet {
         Product product = productService.selectProductById(id);
         req.setAttribute("product",product);
         req.getRequestDispatcher("/views/store/detail-product.jsp").forward(req, resp);
+    }
+
+    private void getPageNumber(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
+        int page = 1;
+        if (req.getParameter("page") != null) {
+            page = Integer.parseInt(req.getParameter("page"));
+        }
+        int pageSize = 6;
+        List<Product> productList = productService.getProducts(page, pageSize);
+        int totalProducts = productService.getTotalProducts();
+        int totalPages = (int) Math.ceil((double) totalProducts / pageSize);
+        req.setAttribute("productList", productList);
+        req.setAttribute("totalPages", totalPages);
+        req.setAttribute("currentPage", page);
+        List<Category> categories = categoryService.selectAll();
+        req.setAttribute("categories",categories);
+        req.getRequestDispatcher("/views/store/shop.jsp").forward(req, resp);
     }
 }
