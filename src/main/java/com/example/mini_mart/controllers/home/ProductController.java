@@ -41,15 +41,17 @@ public class ProductController extends HttpServlet {
                 break;
         }
     }
-
+//tìm sp theo phân loại
     private void searchProductByCategory(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
         int category_id = Integer.parseInt(req.getParameter("category_id"));
         List<Product> products = productService.selectProductByCategoryId(category_id);
         req.setAttribute("products",products);
+        List<Category> categories = categoryService.selectAll();
+        req.setAttribute("categories",categories);
         req.getRequestDispatcher("/views/store/shop.jsp").forward(req,resp);
     }
 
-
+//tìm kiếm sản phẩm trong khoảng giá
     private void searchProductsByApproximatePrice(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
         int price = Integer.parseInt(req.getParameter("rangeInput"));
         List<Product> products = productService.searchProductsByApproximatePrice(price);
@@ -57,30 +59,24 @@ public class ProductController extends HttpServlet {
         req.getRequestDispatcher("/views/store/shop.jsp").forward(req,resp);
     }
 
-    private void showAllProduct(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
-        List<ProductDTO> products = productService.selectAll();
-        req.setAttribute("products",products);
-
-        req.getRequestDispatcher("/views/store/shop.jsp").forward(req,resp);
-    }
-
+//trang chi tiết sản phẩm
     private void showProduct(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
         int id =Integer.parseInt(req.getParameter("product_id")) ;
         Product product = productService.selectProductById(id);
         req.setAttribute("product",product);
         req.getRequestDispatcher("/views/store/detail-product.jsp").forward(req, resp);
     }
-
+//phân trang
     private void getPageNumber(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
         int page = 1;
         if (req.getParameter("page") != null) {
             page = Integer.parseInt(req.getParameter("page"));
         }
         int pageSize = 6;
-        List<Product> productList = productService.getProducts(page, pageSize);
+        List<Product> products = productService.getProducts(page, pageSize);
         int totalProducts = productService.getTotalProducts();
         int totalPages = (int) Math.ceil((double) totalProducts / pageSize);
-        req.setAttribute("productList", productList);
+        req.setAttribute("products", products);
         req.setAttribute("totalPages", totalPages);
         req.setAttribute("currentPage", page);
         List<Category> categories = categoryService.selectAll();

@@ -73,13 +73,22 @@
                                 <div class="mb-3">
                                     <h4>Phân loại</h4>
                                     <ul class="list-unstyled fruite-categorie">
+                                        <li>
+                                            <div class="d-flex justify-content-between fruite-name">
+                                                <a href="/home/shop" class="icon-link icon-link-hover"
+                                                   style="--bs-link-hover-color-rgb: 25, 135, 84;"><i
+                                                        class="bi bi-bookmark-fill"></i> Tất cả
+                                                </a>
+                                            </div>
+                                        </li>
                                         <c:forEach var="category" items="${categories}">
                                             <li>
                                                 <div class="d-flex justify-content-between fruite-name">
-                                                    <a href="/home/shop/search-by-category?category_id=${category.id}"><i
-                                                            class="fas fa-apple-alt me-2"></i>${category.name}
+                                                    <a class="icon-link icon-link-hover"
+                                                       style="--bs-link-hover-color-rgb: 25, 135, 84;"
+                                                       href="/home/shop/search-by-category?category_id=${category.id}"><i
+                                                            class="bi bi-bookmark-fill"></i> ${category.name}
                                                     </a>
-                                                    <span>(3)</span>
                                                 </div>
                                             </li>
                                         </c:forEach>
@@ -106,19 +115,19 @@
                     </div>
                     <div class="col-lg-9">
                         <div class="row g-4">
-                            <c:forEach var="productList" items="${productList}">
+                            <c:forEach var="product" items="${products}">
                                 <div class="col-lg-4 col-md-6 col-sm-12">
                                     <div class="rounded position-relative fruite-item">
-                                        <a href="/home/shop/detail-product?product_id=${productList.id}">
+                                        <a href="/home/shop/detail-product?product_id=${product.id}">
                                             <div class="fruite-img">
-                                                <img src="${productList.avatar}" class="img-fluid w-100 rounded-top" alt="">
+                                                <img src="${product.avatar}" class="img-fluid w-100 rounded-top" alt="">
                                             </div>
                                             <div class="p-4 border border-secondary border-top-0 rounded-bottom">
-                                                <h4>${productList.name}</h4>
-                                                <p class="text-dark"> ${fn:substring(productList.description,0, 55)}... </p>
+                                                <h4>${product.name}</h4>
+                                                <p class="text-dark"> ${fn:substring(product.description,0, 55)}... </p>
                                                 <div class="d-flex justify-content-between flex-lg-wrap">
-                                                    <p class="text-dark fs-5 fw-bold mb-0">${productList.price} / kg</p>
-                                                    <a href="/home/cart/add?product_id=${productList.id}"
+                                                    <p class="text-dark fs-5 fw-bold mb-0">${product.price} / kg</p>
+                                                    <a href="/home/cart/add?product_id=${product.id}"
                                                        class="btn border border-secondary rounded-pill px-3 text-primary"><i
                                                             class="fa fa-shopping-bag me-2 text-primary"></i>Mua</a>
                                                 </div>
@@ -133,7 +142,8 @@
                                         <a href="/home/shop?page=${currentPage - 1}" class="rounded">&laquo;</a>
                                     </c:if>
                                     <c:forEach var="i" begin="1" end="${totalPages}">
-                                        <a href="/home/shop?page=${i}" class="${i == currentPage ? 'active' : ''} rounded">${i}</a>
+                                        <a href="/home/shop?page=${i}"
+                                           class="${i == currentPage ? 'active' : ''} rounded">${i}</a>
                                     </c:forEach>
                                     <c:if test="${currentPage < totalPages}">
                                         <a href="/home/shop?page=${currentPage + 1}" class="rounded">&raquo;</a>

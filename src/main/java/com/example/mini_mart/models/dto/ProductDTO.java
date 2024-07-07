@@ -20,8 +20,6 @@ public class ProductDTO {
         this.categoryId = categoryId;
     }
 
-
-
     public int getId() {
         return id;
     }
