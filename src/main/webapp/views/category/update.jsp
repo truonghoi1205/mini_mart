@@ -26,8 +26,8 @@
                     </div>
                     <div id="previewContainer">
                         <input type="text" class="form-control d-none" id="avatar" placeholder="Ảnh" name="avatar"
-                               value="${product.avatar}">
-                        <img id="imagePreview" src="${product.avatar}" class="img-fluid">
+                               value="${category.avatar}">
+                        <img id="imagePreview" src="${category.avatar}" class="img-fluid">
                     </div>
                 </div>
             </div>

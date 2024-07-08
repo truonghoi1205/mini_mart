@@ -42,10 +42,10 @@ public class CategoryServlet extends HttpServlet {
     }
 
     private void searchCategory(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
-        String name = req.getParameter("name");
+        String name = req.getParameter("name"); 
         List<Category> categories = categoryService.findByName(name);
-        req.setAttribute("categories",categories);
-        req.getRequestDispatcher("/views/category/list.jsp").forward(req,resp);
+        req.setAttribute("categories", categories);
+        req.getRequestDispatcher("/views/category/list.jsp").forward(req, resp);
     }
 
     private void showFormUpdateCategory(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {

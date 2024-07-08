@@ -24,4 +24,6 @@ public interface IProductService {
     List<Product> getProducts(int page, int pageSize);
 
     int getTotalProducts();
+
+    List<ProductDTO> findByName(String name);
 }

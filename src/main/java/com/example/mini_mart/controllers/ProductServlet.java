@@ -40,12 +40,18 @@ public class ProductServlet extends HttpServlet {
                 showFormUpdateProduct(req, resp);
                 break;
             case "/search":
-//                searchProduct(req, resp);
+                searchProduct(req, resp);
                 break;
 
         }
     }
 
+    private void searchProduct(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
+        String name = req.getParameter("name");
+        List<ProductDTO> products = productService.findByName(name);
+        req.setAttribute("products", products);
+        req.getRequestDispatcher("/views/product/list.jsp").forward(req, resp);
+    }
 
 
 

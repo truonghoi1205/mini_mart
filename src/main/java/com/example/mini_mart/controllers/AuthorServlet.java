@@ -24,6 +24,8 @@
                 return;
             }
             super.service(req, resp);
+
+
         }
 
         @Override
@@ -46,6 +48,8 @@
             if (url.equals("/login")) {
                 checkLogin(req, resp);
             }
+
+
         }
 
         private void performLogout(HttpServletRequest req, HttpServletResponse resp) throws IOException {
@@ -67,6 +71,7 @@
                 req.setAttribute("errorMessage", "Email hoặc mật khẩu không chính xác. Vui lòng thử lại!!!");
                 showFormLogin(req, resp);
             }
+
         }
 
 

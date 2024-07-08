@@ -56,7 +56,6 @@ CategoryService implements ICategoryService {
         }
     }
 
-    @Override
     public List<Category> findByName(String name) {
         try {
             return categoryRepo.findByName(name);
@@ -64,6 +63,7 @@ CategoryService implements ICategoryService {
             throw new RuntimeException(e);
         }
     }
+
 
 
 }

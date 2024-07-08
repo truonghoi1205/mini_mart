@@ -68,4 +68,13 @@ public class ProductService implements IProductService {
             throw new RuntimeException(e);
         }
     }
+
+    @Override
+    public List<ProductDTO> findByName(String name) {
+        try {
+            return  productRepository.findByName(name);
+        } catch (SQLException e) {
+            throw new RuntimeException(e);
+        }
+    }
 }

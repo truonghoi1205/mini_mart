@@ -13,6 +13,14 @@
             <div>
                 <a href="/admin/products/create" type="button" class="btn btn-sm btn-outline-primary">Thêm mới</a>
             </div>
+            <div class="col-3">
+                <form action="/admin/products/search" class="d-flex">
+                    <input class="form-control form-control-sm" type="text" name="name"
+                           placeholder="Tìm kiếm theo tên"
+                           aria-label=".form-control-sm example">
+                    <button class="btn btn-outline-primary ms-3">Tìm</button>
+                </form>
+            </div>
         </div>
 
         <table class="table table-bordered mt-3">

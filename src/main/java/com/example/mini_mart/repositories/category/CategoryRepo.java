@@ -91,18 +91,22 @@ public class CategoryRepo implements ICategoryRepo {
     public List<Category> findByName(String name) throws SQLException {
         List<Category> categories = new ArrayList<>();
         Connection connection = new ConnectDB().getConnection();
-        String sql = "select * from categories where name like ? ";
-        PreparedStatement ps = connection.prepareStatement(sql);
-        ps.setString(1,"%" + name + "%");
-        ResultSet rs = ps.executeQuery();
-        while (rs.next()) {
-            Category category = new Category();
-            category.setId(rs.getInt("id"));
-            category.setName(rs.getString("name"));
-            category.setDescription(rs.getString("description"));
-            category.setAvatar(rs.getString("avatar"));
-            categories.add(category);
+        String sql = "SELECT * FROM categories WHERE name LIKE ?";
+        try (PreparedStatement ps = connection.prepareStatement(sql)) {
+            ps.setString(1, "%" + name + "%");
+            ResultSet rs = ps.executeQuery();
+            while (rs.next()) {
+                Category category = new Category();
+                category.setId(rs.getInt("id"));
+                category.setName(rs.getString("name"));
+                category.setDescription(rs.getString("description"));
+                category.setAvatar(rs.getString("avatar"));
+                categories.add(category);
+            }
+        } catch (SQLException e) {
+            throw new RuntimeException(e);
         }
         return categories;
     }
+
 }

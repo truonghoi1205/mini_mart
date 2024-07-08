@@ -1,6 +1,8 @@
 package com.example.mini_mart.models;
 
-public class Product {
+import com.example.mini_mart.models.dto.ProductDTO;
+
+public class Product extends ProductDTO {
     private int id;
     private String sku;
     private String name;

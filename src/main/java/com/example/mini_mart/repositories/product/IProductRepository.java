@@ -26,4 +26,7 @@ public interface IProductRepository {
     List<Product> getProducts(int page, int pageSize) throws SQLException;
 
     int getTotalProducts() throws SQLException;
+
+
+    List<ProductDTO> findByName(String name) throws SQLException;
 }

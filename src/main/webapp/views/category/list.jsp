@@ -19,12 +19,13 @@
 
                     <div class="col-3">
                         <form action="/admin/categories/search" class="d-flex">
-                            <input class="form-control form-control-sm" type="text" name="keyword"
+                            <input class="form-control form-control-sm" type="text" name="name"
                                    placeholder="Tìm kiếm theo tên"
                                    aria-label=".form-control-sm example">
                             <button class="btn btn-outline-primary ms-3">Tìm</button>
                         </form>
                     </div>
+
                 </div>
             </div>
             <div class="p-3 bg-white shadow-sm">
