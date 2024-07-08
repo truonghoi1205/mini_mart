@@ -6,6 +6,9 @@
         <entry key="file://$PROJECT_DIR$/src/main/webapp/giao-dien/cua-hang/home.jsp" value="file://$PROJECT_DIR$/src/main/webapp/giao-dien/cua-hang" />
         <entry key="file://$PROJECT_DIR$/src/main/webapp/giao-dien/cua-hang/shop.jsp" value="file://$PROJECT_DIR$/src/main/webapp/giao-dien/cua-hang" />
         <entry key="file://$PROJECT_DIR$/src/main/webapp/giao-dien/cua-hang/trang-chu.jsp" value="file://$PROJECT_DIR$/src/main/webapp/giao-dien/cua-hang" />
+        <entry key="file://$PROJECT_DIR$/src/main/webapp/views/category/create.jsp" value="file://$PROJECT_DIR$/src/main/webapp/views/category" />
+        <entry key="file://$PROJECT_DIR$/src/main/webapp/views/category/update.jsp" value="file://$PROJECT_DIR$/src/main/webapp/views/category" />
+        <entry key="file://$PROJECT_DIR$/src/main/webapp/views/user/update.jsp" value="file://$PROJECT_DIR$/src/main/webapp/views/user" />
       </map>
     </option>
   </component>
