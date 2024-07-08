@@ -59,7 +59,6 @@ public class ProductRepository implements IProductRepository {
             ps.setDouble(6, product.getCostPrice());
             ps.setInt(7, product.getQuantity());
             ps.setInt(8, product.getCategoryId());
-            ;
             ps.executeUpdate();
         } catch (SQLException e) {
             throw new RuntimeException(e);

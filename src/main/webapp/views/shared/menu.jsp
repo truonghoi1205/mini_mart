@@ -31,7 +31,6 @@
                     <div class="d-flex m-3 me-0">
                         <a href="/logout" class="my-auto d-flex align-items-end">
                             <i class="bi bi-box-arrow-in-right display-6"></i>
-                            <h5 class="text-primary d-inline-block ms-2">Đăng xuất</h5>
                         </a>
                     </div>
                 </div>

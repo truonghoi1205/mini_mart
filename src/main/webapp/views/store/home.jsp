@@ -157,6 +157,137 @@
     </div>
 </div>
 <!-- Vesitable Shop End -->
+
+<!-- Tastimonial Start -->
+<div class="container-fluid testimonial py-5">
+    <div class="container py-5">
+        <div class="testimonial-header text-center py-5 mb-5">
+            <h3 class="text-primary">Khách hàng đánh giá gì về HnQFruits?</h3>
+        </div>
+        <div class="owl-carousel testimonial-carousel">
+            <div class="testimonial-item img-border-radius bg-light rounded p-4">
+                <div class="position-relative">
+                    <i class="fa fa-quote-right fa-2x text-secondary position-absolute" style="bottom: 30px; right: 0;"></i>
+                    <div class="mb-4 pb-4 border-bottom border-secondary">
+                        <p class="mb-0">Cửa hàng rau củ quả này thực sự tuyệt vời! Rau củ tươi ngon, giá cả phải chăng và dịch vụ rất thân thiện. Tôi luôn yên tâm mua sắm ở đây vì biết rằng mình đang mua những sản phẩm chất lượng cao.</p>
+                    </div>
+                    <div class="d-flex align-items-center flex-nowrap">
+                        <div class="bg-secondary rounded">
+                            <img src="img/avatar-female.png" class="img-fluid rounded" style="width: 100px; height: 100px;" alt="">
+                        </div>
+                        <div class="ms-4 d-block">
+                            <h4 class="text-dark">Chị Kiều Anh</h4>
+                            <p class="m-0 pb-3">Khánh hàng thân thiết</p>
+                            <div class="d-flex pe-5">
+                                <i class="fas fa-star text-primary"></i>
+                                <i class="fas fa-star text-primary"></i>
+                                <i class="fas fa-star text-primary"></i>
+                                <i class="fas fa-star text-primary"></i>
+                                <i class="fas fa-star text-primary"></i>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="testimonial-item img-border-radius bg-light rounded p-4">
+                <div class="position-relative">
+                    <i class="fa fa-quote-right fa-2x text-secondary position-absolute" style="bottom: 30px; right: 0;"></i>
+                    <div class="mb-4 pb-4 border-bottom border-secondary">
+                        <p class="mb-0">Tôi đã thử nhiều cửa hàng rau củ khác nhau, nhưng không đâu bằng ở đây. Các loại rau, củ, quả luôn tươi mới và đa dạng. Nhân viên nhiệt tình và luôn sẵn sàng giúp đỡ. Tôi chắc chắn sẽ quay lại nhiều lần nữa.</p>
+                    </div>
+                    <div class="d-flex align-items-center flex-nowrap">
+                        <div class="bg-secondary rounded">
+                            <img src="img/avatar-male.png" class="img-fluid rounded" style="width: 100px; height: 100px;" alt="">
+                        </div>
+                        <div class="ms-4 d-block">
+                            <h4 class="text-dark">Anh Trần Minh Tuấn</h4>
+                            <p class="m-0 pb-3">Nhân viên văn phòng</p>
+                            <div class="d-flex pe-5">
+                                <i class="fas fa-star text-primary"></i>
+                                <i class="fas fa-star text-primary"></i>
+                                <i class="fas fa-star text-primary"></i>
+                                <i class="fas fa-star text-primary"></i>
+                                <i class="fas fa-star text-primary"></i>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="testimonial-item img-border-radius bg-light rounded p-4">
+                <div class="position-relative">
+                    <i class="fa fa-quote-right fa-2x text-secondary position-absolute" style="bottom: 30px; right: 0;"></i>
+                    <div class="mb-4 pb-4 border-bottom border-secondary">
+                        <p class="mb-0">Mình rất thích cửa hàng này vì sự phong phú của các loại rau củ quả. Mỗi lần đến đây mình đều tìm thấy những sản phẩm mình cần. Tuy nhiên, mình hy vọng cửa hàng sẽ mở thêm một vài chi nhánh gần nhà mình hơn nữa.</p>
+                    </div>
+                    <div class="d-flex align-items-center flex-nowrap">
+                        <div class="bg-secondary rounded">
+                            <img src="img/avatar-female.png" class="img-fluid rounded" style="width: 100px; height: 100px;" alt="">
+                        </div>
+                        <div class="ms-4 d-block">
+                            <h4 class="text-dark">Chị Lê Hồng Ngọc</h4>
+                            <p class="m-0 pb-3">Giảng viên đại học</p>
+                            <div class="d-flex pe-5">
+                                <i class="fas fa-star text-primary"></i>
+                                <i class="fas fa-star text-primary"></i>
+                                <i class="fas fa-star text-primary"></i>
+                                <i class="fas fa-star text-primary"></i>
+                                <i class="fas fa-star text-primary"></i>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="testimonial-item img-border-radius bg-light rounded p-4">
+                <div class="position-relative">
+                    <i class="fa fa-quote-right fa-2x text-secondary position-absolute" style="bottom: 30px; right: 0;"></i>
+                    <div class="mb-4 pb-4 border-bottom border-secondary">
+                        <p class="mb-0">Không thể nào bỏ qua cửa hàng rau củ quả này được! Sản phẩm luôn tươi ngon và được sắp xếp gọn gàng, dễ tìm kiếm. Đặc biệt, mình rất ấn tượng với dịch vụ giao hàng nhanh chóng và đúng giờ. Vì một cuộc sống xanh, cảm ơn các bạn!</div>
+                    <div class="d-flex align-items-center flex-nowrap">
+                        <div class="bg-secondary rounded">
+                            <img src="img/avatar-male.png" class="img-fluid rounded" style="width: 100px; height: 100px;" alt="">
+                        </div>
+                        <div class="ms-4 d-block">
+                            <h4 class="text-dark">Anh Phạm Quốc Hùng</h4>
+                            <p class="m-0 pb-3">Kỹ sư xây dựng</p>
+                            <div class="d-flex pe-5">
+                                <i class="fas fa-star text-primary"></i>
+                                <i class="fas fa-star text-primary"></i>
+                                <i class="fas fa-star text-primary"></i>
+                                <i class="fas fa-star text-primary"></i>
+                                <i class="fas fa-star text-primary"></i>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="testimonial-item img-border-radius bg-light rounded p-4">
+                <div class="position-relative">
+                    <i class="fa fa-quote-right fa-2x text-secondary position-absolute" style="bottom: 30px; right: 0;"></i>
+                    <div class="mb-4 pb-4 border-bottom border-secondary">
+                        <p class="mb-0">Một cửa hàng tuyệt vời với những sản phẩm rau củ quả chất lượng cao. Tôi rất hài lòng với sự đa dạng và tươi mới của sản phẩm ở đây. Nhân viên thân thiện và rất nhiệt tình, mình luôn được tư vấn một cách chi tiết và hữu ích.</div>
+                    <div class="d-flex align-items-center flex-nowrap">
+                        <div class="bg-secondary rounded">
+                            <img src="img/avatar-female.png" class="img-fluid rounded" style="width: 100px; height: 100px;" alt="">
+                        </div>
+                        <div class="ms-4 d-block">
+                            <h4 class="text-dark">Chị Vũ Thị Mai</h4>
+                            <p class="m-0 pb-3">Nội trợ</p>
+                            <div class="d-flex pe-5">
+                                <i class="fas fa-star text-primary"></i>
+                                <i class="fas fa-star text-primary"></i>
+                                <i class="fas fa-star text-primary"></i>
+                                <i class="fas fa-star text-primary"></i>
+                                <i class="fas fa-star"></i>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<!-- Tastimonial End -->
+
 <%@include file="/giao-dien/cua-hang/shared/footer.jsp" %>
 </body>
 </html>
