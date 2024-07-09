@@ -33,7 +33,6 @@
                         <th>#</th>
                         <th>Tên</th>
                         <th>Email</th>
-                        <th>Password</th>
                         <th style="width: 300px"></th>
                     </tr>
                     <c:forEach var="user" items="${users}" varStatus="status">
@@ -41,11 +40,7 @@
                             <td>${status.count}</td>
                             <td>${user.name}</td>
                             <td>${user.email}</td>
-                            <td>
-                                <span class="password">●●●●●●●●</span>
-                                <button type="button" class="btn  toggle-password" data-password="${user.password}"><i
-                                        class="bi bi-eye"></i></button>
-                            </td>
+
                             <td>
                                 <a href="/admin/users/update?id=${user.id}"
                                    class="btn btn-sm btn-outline-warning me-3">Sửa</a>
